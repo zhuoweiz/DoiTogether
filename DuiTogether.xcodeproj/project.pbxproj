@@ -100,6 +100,7 @@
 		0DF11E3921AAB4DE0004EDC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GroupDetail.storyboard; sourceTree = "<group>"; };
 		0DF11E3C21AAB4E00004EDC4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GroupDetail.strings"; sourceTree = "<group>"; };
 		0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
+		0DF11E3F21AB49C10004EDC4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6B96DC5BBF13D3E8D2776C06 /* Pods_DuiTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuiTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A5FB93F4EC381C0D8EFF95 /* Pods-DuiTogetherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogetherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogetherTests/Pods-DuiTogetherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B6EB822E88637A14E3729A /* Pods-DuiTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogether/Pods-DuiTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		0D5194FA2193EF43007939D7 = {
 			isa = PBXGroup;
 			children = (
+				0DF11E3F21AB49C10004EDC4 /* README.md */,
 				0D5195052193EF43007939D7 /* DuiTogether */,
 				0D51951D2193EF45007939D7 /* DuiTogetherTests */,
 				0D5195282193EF45007939D7 /* DuiTogetherUITests */,
