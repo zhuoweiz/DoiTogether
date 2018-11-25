@@ -26,7 +26,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         return refreshControl
     }()
-    
+     
     @objc func requestRefresherData() {
         print("requesting data...")
         plazaCollection.reloadData()
