@@ -21,12 +21,11 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
         
-        
         refreshControl.addTarget(self, action: #selector(requestRefresherData), for: .valueChanged)
         
         return refreshControl
     }()
-     
+    
     @objc func requestRefresherData() {
         print("requesting data...")
         plazaCollection.reloadData()

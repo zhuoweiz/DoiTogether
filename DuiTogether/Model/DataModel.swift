@@ -30,8 +30,6 @@ class GroupsModel {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                
-                //                DispatchQueue.main.async {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     
@@ -52,8 +50,6 @@ class GroupsModel {
                         creationDate: data.value(forKey: "creationDate") as! NSDate
                     )
                     self.plazaGroups.append(newGroup)
-                    
-                    //                    }
                 }
             }
             // completion
