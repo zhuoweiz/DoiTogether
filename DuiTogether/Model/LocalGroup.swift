@@ -9,28 +9,25 @@
 import Foundation
 import Firebase
 
-
-
 class LocalGroup {
     // member var
     private var groupID: String
     private var creationDate: NSDate
     
     private var mName : String
-    private var mTask : String = ""
-    private var mAmount : Int = 0
+    private var mTask : String
+    private var mAmount : Int
     private var mUnit: String = "Amount"
-    private var mLength : Int = 30 // Days
+    private var mLength : Int // Days
     private var mRule : String = "No rule specified"
     
-    private var mCapacity : Int = 20
-    private var mSize : Int = 0
+    private var mCapacity : Int = 10
+    private var mSize : Int = 1
     
-    private var mUserList: [localUser] = []
     private var mUidList: [String] = []
     private var mDays: [localDay] = []
     
-    private var mProgress = 0
+    private var mProgress = 1
     var mColorCode: [Int]
     
     // helper members
@@ -65,14 +62,6 @@ class LocalGroup {
     }
     
     // Modifiers, combine both local data & db query
-    // TODO: not used for now
-    public func addUser(user: localUser) {
-        // local change
-        mUserList.append(user)
-        mSize += 1
-        
-        // db change
-    }
     public func addUid(uid: String) {
         mUidList.append(uid)
         mSize += 1
@@ -88,8 +77,17 @@ class LocalGroup {
     public func getSize() -> Int {
         return mSize
     }
+    public func getCap() -> Int {
+        return mCapacity
+    }
     public func getName() -> String {
         return mName
+    }
+    public func getAmount() -> Int {
+        return mAmount
+    }
+    public func getUnit() -> String {
+        return mUnit
     }
     public func getColor() -> [Double] {
         var result : [Double] = []
@@ -97,5 +95,20 @@ class LocalGroup {
             result.append(Double(mColorCode[i]))
         }
         return result
+    }
+    public func getProgress() -> Float {
+        return Float(mProgress/mLength)
+    }
+    public func getProgressInt() -> Int {
+        return mProgress
+    }
+    public func getLength() -> Int {
+        return mLength
+    }
+    public func getRuleText() -> String {
+        return mRule
+    }
+    public func getgid() -> String {
+        return groupID
     }
 }

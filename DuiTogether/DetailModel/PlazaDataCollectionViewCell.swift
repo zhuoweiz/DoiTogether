@@ -14,3 +14,5 @@ class PlazaDataCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var CellFrequencyLabel: UILabel!
     @IBOutlet weak var CellPopulationLabel: UILabel!
 }
+
+ 

@@ -13,10 +13,12 @@ import Firebase
 class PlazaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var sharedModel = GroupsModel.shared
+    var sharedUserModel = UserDataModel.shared
     
     @IBOutlet weak var plazaCollection: UICollectionView!
     @IBOutlet weak var navItemShow: UINavigationItem!
     
+    // refresher stuff
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
@@ -25,10 +27,14 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         return refreshControl
     }()
-    
     @objc func requestRefresherData() {
         print("requesting data...")
-        plazaCollection.reloadData()
+        
+        sharedModel.fetchPlazaData { (data: String) in
+            print("finished reloading data...")
+            self.plazaCollection.reloadData()
+        }
+        
         
         self.refresher.beginRefreshing()
         let deadline = DispatchTime.now() + .milliseconds(500)
@@ -41,69 +47,57 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view. - completion handler
 //        self.tabBarController?.tabBar.isHidden = false
-        sharedModel.fetchData { (data: String) in
+        sharedModel.fetchPlazaData { (data: String) in
             self.plazaCollection.reloadData()
         }
         
         // Layout setup
-        let _size = (view.frame.size.width - 60)/2
         let layout = plazaCollection.collectionViewLayout as! UICollectionViewFlowLayout;
-        layout.itemSize = CGSize(width: _size, height: _size)
         plazaCollection.delegate = self
-        
         var sectionInset: UIEdgeInsets
         sectionInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10);
-        
         layout.sectionInset = sectionInset
         
-        //TODO: get data from cloud db in prepare function
-        
         // navbar setup
-        setupNavBar()
+//        setupNavBar()
         
         // refresh control setup
         plazaCollection.refreshControl = refresher
     }
     
-    // nav bar large titles helper function
-    func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true;
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
-    //  setting the size of each item
+    //  setting the size of each item, there is another approach
     func collectionView(_ collectionView: UICollectionView,
                                  layout collectionViewLayout: UICollectionViewLayout,
                                  sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         if indexPath.section == 0 {
             return CGSize(width: (view.frame.size.width - 40), height: 90)
         } else {
+            // print(view.frame.size.width);
             if(indexPath.item == 0) {
                 return CGSize(width: (view.frame.size.width - 20), height: (view.frame.size.width - 60)/2)
             } else {
                 return CGSize(width: (view.frame.size.width - 40)/2, height: (view.frame.size.width - 60)/2)
             }
         }
-        
     }
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         if(section==0) {
             return 1
         } else {
-            return sharedModel.getSize()
+            return sharedModel.getPlazaSize()
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if(indexPath.section == 0) {
@@ -111,7 +105,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             let textColor = UIColor(red: CGFloat(109 / 255.0), green: CGFloat(192 / 255.0), blue: CGFloat(255.0 / 255.0), alpha: 1.0)
             
-            cell.landingLabel.text = "Welcome new members"
+            cell.landingLabel.text = NSLocalizedString("Welcome new members", comment: "")
             cell.landingLabel.textColor = textColor
             cell.descLabel.text = "Read rules & Create new groups HERE"
             cell.descLabel.textColor = textColor
@@ -125,10 +119,8 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "plazaCell", for: indexPath) as! PlazaDataCollectionViewCell
             
-            
             // red, green, blue takes a noramilized value from 0-1
 //            let randomColor = Int(arc4random_uniform(UInt32(colorDB.count)))
-            
             
             // Cell style customization
             //color dataBase
@@ -160,10 +152,10 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             // Cell content customization
             do {
-                let tempGroup = try sharedModel.getGroup(atIndex: indexPath.item)
+                let tempGroup = try sharedModel.getPlazaGroup(atIndex: indexPath.item)
                 cell.CellTaskLabel.text = "\(tempGroup!.getTask()) with \(tempGroup!.getName())"
-                cell.CellFrequencyLabel.text = "\(indexPath.item+1) problems/Day"
-                cell.CellPopulationLabel.text = "\(indexPath.item+1) people in"
+                cell.CellFrequencyLabel.text = "\(tempGroup!.getAmount())  \(tempGroup!.getUnit())/\(NSLocalizedString("Day", comment:""))"
+                cell.CellPopulationLabel.text = "\(tempGroup!.getSize()) people in"
                 
                 let colorCode: [Double] = tempGroup!.getColor()
                 
@@ -174,7 +166,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
                 cell.CellFrequencyLabel.textColor = textColor
                 cell.CellPopulationLabel.textColor = textColor
             } catch VendingMachineError.outOfBounds {
-                print("trying to get out of bounds group on plaza page")
+                print("trying to get out of bounds group on plaza page 2")
             } catch {
                 
             }
@@ -193,9 +185,9 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "plazaPopularHeader", for: indexPath) as! PlazaPopularCollectionReusableView
         
         if( indexPath.section == 0) {
-            header.headerLabel.text = "Guide"
+            header.headerLabel.text = NSLocalizedString("Guide", comment: "")
         } else {
-            header.headerLabel.text = "Popular"
+            header.headerLabel.text = NSLocalizedString("Popular", comment: "")
         }
         
         return header
@@ -207,11 +199,29 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(indexPath.section == 1) {
             let vc : GroupViewController! = storyboard?.instantiateViewController(withIdentifier: "GroupDetailSBI") as? GroupViewController
-
-            vc.groupNameNavItem.title = "Leetcode under \(indexPath.item+1) hours"
-            vc.complexText = "Leetcode under \(indexPath.item+1) hours"
             
             // TODO: set group object here for data pass in
+            do {
+                let tempGroup = try sharedModel.getPlazaGroup(atIndex: indexPath.item)
+                
+                vc.groupNameNavItem.title = "\(tempGroup!.getName())"
+                vc.complexText = "\(tempGroup!.getTask()) \(tempGroup!.getAmount()) \(tempGroup!.getUnit())/Day"
+                vc.groupsizeText = "\(tempGroup!.getSize()) / \(tempGroup!.getCap()) \(NSLocalizedString("People", comment: ""))"
+                vc.progressText = "\(tempGroup!.getProgressInt()) / \(tempGroup!.getLength())"
+                vc.checkoffText = NSLocalizedString("no info yet", comment: "")
+                vc.ruleText = "\(tempGroup!.getRuleText())"
+                vc.thisGid = tempGroup!.getgid()
+                if(sharedUserModel.hasGroupByID(gid: tempGroup!.getgid())) {
+                    vc.hasTent = true
+                }
+                
+                // let colorCode: [Double] = tempGroup!.getColor() // for theme customization for each group page in the future
+                
+            } catch VendingMachineError.outOfBounds {
+                print("trying to get out of bounds group on plaza page 1")
+            } catch {
+                
+            }
             
             //        present(vc, animated: true, completion: nil);
             self.navigationController?.pushViewController(vc, animated: true)
@@ -254,5 +264,11 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    // helper functions
+    // nav bar large titles helper function
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true;
     }
 }

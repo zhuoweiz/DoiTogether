@@ -1,1 +1,25 @@
 
+
+/* Class = "UITabBarItem"; title = "我的帐篷"; ObjectID = "5Xa-Dq-N7w"; */
+"5Xa-Dq-N7w.title" = "我的帐篷";
+
+/* Class = "UITabBarItem"; title = "Plaza"; ObjectID = "5vL-wO-1uK"; */
+"5vL-wO-1uK.title" = "帐篷广场";
+
+/* Class = "UILabel"; text = "Popular"; ObjectID = "IKJ-Dn-BRb"; */
+"IKJ-Dn-BRb.text" = "热门";
+
+/* Class = "UINavigationItem"; title = "帐篷广场"; ObjectID = "Ras-gK-yRw"; */
+"Ras-gK-yRw.title" = "帐篷广场";
+
+/* Class = "UITabBarItem"; title = "广场"; ObjectID = "Rh5-k4-tRK"; */
+"Rh5-k4-tRK.title" = "广场";
+
+/* Class = "UIButton"; normalTitle = "Sign In to see my tents"; ObjectID = "fBb-js-Kc6"; */
+"fBb-js-Kc6.normalTitle" = "请登录查看帐篷";
+
+/* Class = "UILabel"; text = "进度条"; ObjectID = "fTY-mN-G8d"; */
+"fTY-mN-G8d.text" = "进度条";
+
+/* Class = "UINavigationItem"; title = "我的帐篷"; ObjectID = "wNd-0D-IS9"; */
+"wNd-0D-IS9.title" = "我的帐篷";

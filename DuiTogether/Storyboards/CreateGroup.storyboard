@@ -12,12 +12,12 @@
         <!--Create Group-->
         <scene sceneID="tsp-lX-jHa">
             <objects>
-                <viewController storyboardIdentifier="CreateGroupSBI" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kGY-KD-sBf" customClass="CreateGroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGroupSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kGY-KD-sBf" customClass="CreateGroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tEU-SF-LlI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="T6l-0w-bMP">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6l-0w-bMP">
                                 <rect key="frame" x="0.0" y="20" width="375" height="1060"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-u5-bzw">
@@ -25,7 +25,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuF-Hh-nt1">
                                                 <rect key="frame" x="107.5" y="723" width="160" height="30"/>
-                                                <color key="backgroundColor" red="0.4657734617" green="0.98926352719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.33376785869999998" green="0.96468148949999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="ZTM-Gf-dj6"/>
                                                 </constraints>
@@ -67,7 +67,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMa-z6-mFZ">
                                                 <rect key="frame" x="86" y="8" width="203" height="30"/>
-                                                <color key="backgroundColor" red="0.4657734617" green="0.98926352719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.72143659959999995" green="0.71183677909999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="203" id="uVm-AB-knz"/>
                                                 </constraints>

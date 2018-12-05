@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--用户主页-->
         <scene sceneID="fXD-U9-J0R">
             <objects>
                 <viewController storyboardIdentifier="ProfilePageSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MFQ-l4-YsZ" customClass="LoginViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,8 +27,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-vB-JsZ" userLabel="FormView">
                                 <rect key="frame" x="16" y="240" width="343" height="182"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-UU-Icl">
-                                        <rect key="frame" x="151" y="8" width="41" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邮箱账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-UU-Icl">
+                                        <rect key="frame" x="136.5" y="8" width="70" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="gZM-5c-Abb"/>
                                             <constraint firstAttribute="height" constant="21" id="n2g-QI-0uX"/>
@@ -50,7 +50,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="163" id="BYg-WG-lfm"/>
                                             <constraint firstAttribute="height" constant="30" id="cje-Mb-k2x"/>
                                         </constraints>
-                                        <state key="normal" title="Sign Out">
+                                        <state key="normal" title="登出">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -78,7 +78,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="163" id="Uye-Gv-AT9"/>
                                     <constraint firstAttribute="height" constant="30" id="iD6-KP-G61"/>
                                 </constraints>
-                                <state key="normal" title="Sign In">
+                                <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -100,7 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="xrV-4p-iBk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Mp2-ZK-bei"/>
-                    <navigationItem key="navigationItem" title="Profile" id="lWf-EM-nnS"/>
+                    <navigationItem key="navigationItem" title="用户主页" id="lWf-EM-nnS"/>
                     <connections>
                         <outlet property="SignInButtonOutlet" destination="tsG-XS-91s" id="cDL-Nn-8oB"/>
                         <outlet property="SignOutButtonOutlet" destination="nn2-ki-FMl" id="epa-ac-1KJ"/>
@@ -113,11 +113,12 @@
             </objects>
             <point key="canvasLocation" x="-276" y="662"/>
         </scene>
-        <!--Profile-->
+        <!--用户主页-->
         <scene sceneID="jPj-Rq-wZQ">
             <objects>
                 <navigationController id="UvJ-iS-20n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="aw0-vm-VhX"/>
+                    <tabBarItem key="tabBarItem" title="用户主页" image="Profile" id="aw0-vm-VhX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Smh-fa-u7t">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -131,4 +132,7 @@
             <point key="canvasLocation" x="-1170" y="662"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Profile" width="37.5" height="37.5"/>
+    </resources>
 </document>

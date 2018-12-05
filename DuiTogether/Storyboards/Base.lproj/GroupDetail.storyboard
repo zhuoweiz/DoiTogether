@@ -12,13 +12,13 @@
         <!--Group for join-->
         <scene sceneID="DPD-2s-Emx">
             <objects>
-                <viewController storyboardIdentifier="GroupDetailSBI" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HWw-cW-eu6" customClass="GroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupDetailSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HWw-cW-eu6" customClass="GroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wa3-lZ-ZAN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="YXb-JK-IlE">
-                                <rect key="frame" x="0.0" y="20" width="375" height="880"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="836"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clb-Bt-Hqd">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -229,17 +229,22 @@
                         <viewLayoutGuide key="safeArea" id="iZo-qs-UM8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Group for join" id="gfP-Xa-ltZ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="JoinButtonOutlet" destination="Vnr-Zo-5zx" id="XPy-fI-TrG"/>
                         <outlet property="bigScrollView" destination="YXb-JK-IlE" id="8Uu-FX-j7h"/>
+                        <outlet property="checkOffOverviewOutlet" destination="in4-C3-EWX" id="oZ3-K5-bZB"/>
                         <outlet property="checkOffTable" destination="UNp-vU-AGT" id="Uzy-rn-1d0"/>
                         <outlet property="groupInfoOutlet" destination="jtp-hC-zDu" id="q60-cE-0vZ"/>
                         <outlet property="groupNameNavItem" destination="gfP-Xa-ltZ" id="A6R-zD-tg8"/>
                         <outlet property="groupRuleOutlet" destination="bpQ-yc-MEU" id="YDL-px-X9P"/>
+                        <outlet property="groupsizeOutlet" destination="pJU-sU-fY4" id="Tvc-W3-3zN"/>
                         <outlet property="navBar" destination="gfP-Xa-ltZ" id="YhA-oS-l3Z"/>
+                        <outlet property="progressOutlet" destination="kEy-iB-MHq" id="x3Z-IG-p44"/>
+                        <outlet property="ruleTextOutlet" destination="JIB-MV-4ox" id="8Dk-a8-gUg"/>
                         <outlet property="taskComplex" destination="WDY-pf-QOi" id="ut2-GI-ha8"/>
-                        <segue destination="i6G-zv-SqA" kind="show" id="H2q-w7-LRm"/>
+                        <segue destination="i6G-zv-SqA" kind="show" identifier="checkoffSI" id="H2q-w7-LRm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfc-Vz-r9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +260,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBT-BU-mG5">
-                                <rect key="frame" x="77.5" y="36" width="220" height="150"/>
+                                <rect key="frame" x="77.5" y="80" width="220" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="3cj-44-dGa"/>
                                     <constraint firstAttribute="width" constant="220" id="48j-Ol-cDq"/>

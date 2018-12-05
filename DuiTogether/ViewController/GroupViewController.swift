@@ -14,36 +14,63 @@ import FirebaseUI
 typealias GCompletionHandler = ((_ group: LocalGroup?) -> Void)
 class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
     
+    var sharedModel = GroupsModel.shared
+    var sharedUserModel = UserDataModel.shared
+    
     @IBOutlet weak var groupNameNavItem: UINavigationItem!
     
     @IBOutlet weak var groupInfoOutlet: UIView!
     @IBOutlet weak var taskComplex: UILabel!
-    
     @IBOutlet weak var groupRuleOutlet: UIView!
+    
     @IBOutlet weak var JoinButtonOutlet: UIButton!
-    
     @IBOutlet weak var navBar: UINavigationItem!
-    
     @IBOutlet weak var checkOffTable: UITableView!
     @IBOutlet weak var bigScrollView: UIScrollView!
     
+    // rest outlets
+    @IBOutlet weak var groupsizeOutlet: UILabel!
+    @IBOutlet weak var progressOutlet: UILabel!
+    @IBOutlet weak var checkOffOverviewOutlet: UILabel!
+    @IBOutlet weak var ruleTextOutlet: UITextView!
+    
+    // ui passed in var
+    var groupsizeText = ""
+    var progressText = ""
+    var checkoffText = ""
+    var ruleText = ""
     var complexText = ""
-    var group: LocalGroup? = nil;
+    var group: LocalGroup? = nil
+    
+    // logic passed in var
+    var hasTent:Bool = false
+    var thisGid: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         
-        // UI setting
+        // UI pre setting
         JoinButtonOutlet.layer.cornerRadius = 6;
         JoinButtonOutlet.clipsToBounds = true;
 
-        // Do any additional setup after loading the view. TODO: change after data setting up
+        // UI dynamic data
         taskComplex.text = complexText;
-        groupNameNavItem.title =  complexText;
+        groupsizeOutlet.text = groupsizeText
+        progressOutlet.text = progressText
+        checkOffOverviewOutlet.text = checkoffText
+        ruleTextOutlet.text = ruleText
         
-        // Show setup, TODO: change after data setting up
-        checkOffTable.isHidden = true
-        bigScrollView.isScrollEnabled = false;
+        // Show setup
+        if(hasTent) {
+            JoinButtonOutlet.isHidden = true
+            checkOffTable.isHidden = false
+            bigScrollView.isScrollEnabled = true
+        } else {
+            JoinButtonOutlet.isHidden = false
+            checkOffTable.isHidden = true
+            bigScrollView.isScrollEnabled = false;
+        }
         
         // Should have stay unchanged
         checkOffTable.isScrollEnabled = false;
@@ -59,7 +86,6 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     override func viewDidAppear(_ animated: Bool) {
         // setup view did load here
         checkOffTable.reloadData()
-        print("reloading fav page")
     }
     
     var completionHandler: GCompletionHandler?
@@ -74,23 +100,53 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
             authPermission = false
         }
         
+        // if user is signed in
         if authPermission {
-            // signed in
-            // hide button, show table
-            JoinButtonOutlet.isHidden = true
-            checkOffTable.isHidden = false
-            bigScrollView.isScrollEnabled = true
-            
-            print("before handler...")
-            
-            // switch page (NOT WORKING)
-            if let completionHandler = self.completionHandler {
-                print("completiong handler...")
-                completionHandler(group)
-                print("completiong handler...")
-                self.navigationController?.popViewController(animated: false)
-            }
-            
+            // Code sniplet in a method
+            let alertController = UIAlertController(title: NSLocalizedString("Alert", comment: ""),
+                                                    message: NSLocalizedString("Joining a group requires huge commitment, you can't bail in the middle, are you sure to join?", comment: ""),
+                                                    preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Not yet", comment: ""), style: .cancel, handler: nil)
+            // Using the handler parameter, send the code to be executed (handle the action)
+            // We need to capture the action, hence the "action in"
+            let okAction = UIAlertAction(title: NSLocalizedString("Yes I am", comment: ""), style: .default, handler: { action in
+                
+                print("Alert ok action")
+                
+                // hide button, show table
+                let thisuid = self.sharedUserModel.user!.GetUid()
+                self.JoinButtonOutlet.isHidden = true
+                self.checkOffTable.isHidden = false
+                self.bigScrollView.isScrollEnabled = true
+                
+                // data modifiers
+                self.sharedModel.getGroupById(gid: self.thisGid).addUid(uid: thisuid) // 1
+                self.sharedUserModel.user?.AddGroup(gid: self.thisGid) // 2
+                let db = Firestore.firestore() // 3
+                let washingtonRef = db.collection("users").document(thisuid)
+                // Atomically add a new region to the "regions" array field.
+                washingtonRef.updateData([
+                    "groups": FieldValue.arrayUnion([self.thisGid])
+                    ])
+                // 4
+                let laRef = db.collection("groups").document(self.thisGid)
+                // Atomically add a new region to the "regions" array field.
+                laRef.updateData([
+                    "users": FieldValue.arrayUnion([thisuid])
+                    ])
+
+                // switch page (NOT WORKING)
+                // print("before handler...")
+                if let completionHandler = self.completionHandler {
+                    print("NOT WORKING completiong handler...")
+                    completionHandler(self.group)
+                    print("NOT WORKING completiong handler...")
+                    self.navigationController?.popViewController(animated: false)
+                }
+            } )
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             // not not logged in, go to page blabla
             let authUI = FUIAuth.defaultAuthUI()
@@ -119,7 +175,6 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     */
     
     // MARK: - Table view data source
-    var sharedModel = GroupsModel.shared
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

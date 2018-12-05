@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  DuiTogether
+
+  Created by Joey on 11/12/18.
+  Copyright © 2018 Joey. All rights reserved.
+*/
+
+// plaza page
+"DuiTogether?" = "对一起?";
+"Yesterday you sold %@ apps" = "Anarado yohi akaku %@ apodis";
+"Day" = "日";
+"Popular" = "热门";
+"Guide" = "入门";
+"Welcome new members" = "欢迎新成员！~";
+
+// alert
+"Not yet" = "再想想";
+"Yes I am" = "我决定了!";
+"Alert" = "注意~";
+"Joining a group requires huge commitment, you can't bail in the middle, are you sure to join?" = "入帐需要尽可能的投入，不允许中途退出，你确定要加入吗";
+
+// tent page
+"People" = "人";
+"no info yet" = "暂无消息";

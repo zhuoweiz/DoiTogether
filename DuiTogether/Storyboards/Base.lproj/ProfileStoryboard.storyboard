@@ -99,7 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xrV-4p-iBk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="Mp2-ZK-bei"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="Mp2-ZK-bei"/>
                     <navigationItem key="navigationItem" title="Profile" id="lWf-EM-nnS"/>
                     <connections>
                         <outlet property="SignInButtonOutlet" destination="tsG-XS-91s" id="cDL-Nn-8oB"/>
@@ -117,7 +117,8 @@
         <scene sceneID="jPj-Rq-wZQ">
             <objects>
                 <navigationController id="UvJ-iS-20n" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="aw0-vm-VhX"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="aw0-vm-VhX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Smh-fa-u7t">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -131,4 +132,7 @@
             <point key="canvasLocation" x="-1170" y="662"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Profile" width="37.5" height="37.5"/>
+    </resources>
 </document>

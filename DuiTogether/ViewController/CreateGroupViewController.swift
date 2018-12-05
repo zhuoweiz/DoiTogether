@@ -15,6 +15,7 @@ typealias AddCompletionHandler = ((_ task: String?, _ taskFooter: String?) -> Vo
 class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthDelegate {
     
     var sharedModel = GroupsModel.shared
+    var sharedUserModel = UserDataModel.shared
 
     // useless outlets
     @IBOutlet weak var form1: UIView!
@@ -33,6 +34,8 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.isHidden = true
         
         // Do any additional setup after loading the view.
 //        print("did load...")
@@ -105,14 +108,11 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                 (127,219,255, 27,72,100),
                 (57,204,204, 0, 0, 0),
                 (61,153,112, 30,54,41),
-                (46,204,64, 14,62,19),
                 (1,255,112,0,102,43),
                 (255,133,27,102,47,0),
                 (255,65,54,128,5,0),
                 (255,220,0,102,88,0),
                 (133,20,75,234,122,177),
-                (240,18,190,101,6,79),
-                (177,13,201,238,169,249),
                 (221,221,221,0,0,0),
                 (17,17,17,221,221,221),
                 (170,170,170,0,0,0)
@@ -138,7 +138,7 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                 "capacity": Int(capacity) ?? 0,
                 "size" : 1,
                 "rule": rule,
-                "users": [],
+                "users": [sharedUserModel.user?.GetUid()], // add uid to the group
                 "creationDate": creationDate,
                 "progress":0,
                 "colorCode": colorCode
@@ -165,11 +165,13 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                         // No user is signed in.
                         print("ERROE! not logged in but trying to add group")
                     }
+                    // add gid to user and others, done in create function
                 }
             }
             
             // test stack pop
             print("get the plaza page back")
+            self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -201,10 +203,11 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
             return
         }
         
-        viewDidLoad()
+        // after login create UserDataModel
+        UserDataModel.shared.login(email: user!.email!, uid: user!.uid, url: user?.photoURL?.absoluteString ?? "")
         
+        viewDidLoad()
     }
-    
     
     // ---- keyboards customization starts -----
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -231,13 +234,8 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
         return true;
     }
     
-    
-    @IBAction func swipeUpAction(_ sender: UISwipeGestureRecognizer) {
-        print("swiped up for keybaord dismiss...")
-        self.view.endEditing(true)
-    }
     @IBAction func singleTapAction(_ sender: UITapGestureRecognizer) {
-        print("tapped once for keybaord dismiss...")
+//        print("tapped once for keybaord dismiss...")
         self.view.endEditing(true)
     }
 

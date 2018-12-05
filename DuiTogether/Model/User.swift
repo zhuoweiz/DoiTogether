@@ -10,20 +10,56 @@ import Foundation
 
 
 class localUser {
-    
+
     // member variables
+    let uid: String
     var mEmail: String = ""
     var avatarUrl: String = ""
-    var mGroups = [LocalGroup]()
+    private var groups : [String] = []; // keep track of this user's groups so when a user loads a group, it checks isjoin, or load myTents page
     
-    init(email: String) {
+    // init
+    init(email: String, uid: String, url: String) {
         mEmail = email
+        self.uid = uid
+        avatarUrl = url
     }
+    
+    // getters
     public func GetUserEmail() -> String {
         return mEmail
     }
-    public func AddGroup(group: LocalGroup) {
-        mGroups.append(group)
+    public func GetGroupCount() -> Int {
+        return groups.count
+    }
+    public func GetGroupByIndex(index: Int) -> LocalGroup? {
+        if(index >= groups.count) {
+            return nil
+        } else {
+            return GroupsModel.shared.getGroupById(gid: groups[index])
+        }
+    }
+    public func GetUid() -> String {
+        return uid
+    }
+    
+    // modifiers
+    public func AddGroup(gid: String) {
+        groups.append(gid)
+    }
+    public func getTentsCount() -> Int {
+        return groups.count
+    }
+    public func clearGroups() {
+        groups = []
+    }
+    
+    // bool
+    public func hasGroupByID(gid: String) -> Bool {
+        if groups.contains(gid) {
+            return true
+        } else {
+            return false
+        }
     }
 }
 

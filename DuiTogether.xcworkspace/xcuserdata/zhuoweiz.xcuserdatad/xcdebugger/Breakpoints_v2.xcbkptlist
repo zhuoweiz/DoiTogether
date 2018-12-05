@@ -25,28 +25,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DuiTogether/ViewController/GroupViewController.swift"
-            timestampString = "564871966.538964"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "JoinGroupAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DuiTogether/ViewController/CreateGroupViewController.swift"
-            timestampString = "564871966.539664"
+            timestampString = "565665671.219452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "CreateGroupViewController"
             landmarkType = "3">
             <Locations>
@@ -120,7 +104,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DuiTogether/ViewController/PlazaViewController.swift"
-            timestampString = "564871966.540082"
+            timestampString = "565665671.219637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -213,7 +197,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DuiTogether/ViewController/PlazaViewController.swift"
-            timestampString = "564871966.540767"
+            timestampString = "565665671.219792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -291,7 +275,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DuiTogether/Model/DataModel.swift"
-            timestampString = "564871966.541294"
+            timestampString = "565665671.219921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
