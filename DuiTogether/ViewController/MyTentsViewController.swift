@@ -57,22 +57,6 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        // if logged in, fetch data
-        let user = Auth.auth().currentUser
-        if let user = user {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let uid = user.uid
-            
-            sharedUserModel.fetchUserTentData(uid: uid) { (data) in
-                self.collectionViewOutlet.reloadData()
-            }
-        } else {
-            
-        }
-        
         // Layout setup
         let layout = collectionViewOutlet.collectionViewLayout as! UICollectionViewFlowLayout;
         collectionViewOutlet.delegate = self
@@ -91,6 +75,21 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         
+        // if logged in, fetch data
+        let user = Auth.auth().currentUser
+        if let user = user {
+            // The user's ID, unique to the Firebase project.
+            // Do NOT use this value to authenticate with your backend server,
+            // if you have one. Use getTokenWithCompletion:completion: instead.
+            let uid = user.uid
+            
+            sharedUserModel.fetchUserTentData(uid: uid) { (data) in
+                self.collectionViewOutlet.reloadData()
+            }
+        } else {
+            
+        }
+        
         if Auth.auth().currentUser != nil {
             // User is signed in.
             signinOutlet.isHidden = true
@@ -106,9 +105,16 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     //
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height:CGFloat = 160;
-        let width:CGFloat = view.frame.size.width * 4/5
+        var height:CGFloat
+        var width:CGFloat
         
+        if( view.frame.size.width > 760) {
+            height = 160
+            width = (view.frame.size.width - 80)/2
+        } else {
+            height = 160
+            width = view.frame.size.width * 4/5
+        }
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -132,7 +138,7 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
             cell.amountOutlet.text = "\(tempGroup.getAmount())  \(tempGroup.getUnit())/Day"
             cell.sizeOutlet.text = "\(tempGroup.getSize()) people in"
             cell.progressOutlet.progress = tempGroup.getProgress()
-            cell.statusOutlet.text = "not defined yet"
+            cell.statusOutlet.text = "\(NSLocalizedString("doing...", comment: "")) \(tempGroup.getTask())"
             
             let colorCode: [Double] = tempGroup.getColor()
             

@@ -47,6 +47,29 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     var hasTent:Bool = false
     var thisGid: String = ""
     
+    // refresher stuff
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .yellow
+        
+        refreshControl.addTarget(self, action: #selector(requestRefresherData), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    @objc func requestRefresherData() {
+        print("requesting data...")
+        
+        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
+            self.checkOffTable.reloadData()
+        }
+        
+        self.refresher.beginRefreshing()
+        let deadline = DispatchTime.now() + .milliseconds(600)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.refresher.endRefreshing()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,15 +93,21 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
             JoinButtonOutlet.isHidden = true
             checkOffTable.isHidden = false
             bigScrollView.isScrollEnabled = true
-            navBar.rightBarButtonItem = UIBarButtonItem(title: "Check Off", style: .plain, target: self, action: #selector(CheckOff))
+            navBar.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Check Off", comment: ""), style: .plain, target: self, action: #selector(CheckOff))
         } else {
             JoinButtonOutlet.isHidden = false
             checkOffTable.isHidden = true
             bigScrollView.isScrollEnabled = false;
         }
         
+        // refresh control setup
+        bigScrollView.refreshControl = refresher
+        
         // Should have stay unchanged
 //        checkOffTable.isScrollEnabled = false;
+        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
+            self.checkOffTable.reloadData()
+        }
     }
     
     // helper function
@@ -93,14 +122,16 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        // update checkoff table
     }
     override func viewDidAppear(_ animated: Bool) {
-        // setup view did load here
-        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
-            self.checkOffTable.reloadData()
-        }
+        checkOffTable.reloadData()
     }
     
+    
+    @IBAction func groupmemberAction(_ sender: UIButton) {
+        
+    }
     var completionHandler: GCompletionHandler?
     @IBAction func JoinGroupAction(_ sender: UIButton) {
         // TODO: auth permission
@@ -131,7 +162,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
                 self.JoinButtonOutlet.isHidden = true
                 self.checkOffTable.isHidden = false
                 self.bigScrollView.isScrollEnabled = true
-                self.navBar.rightBarButtonItem = UIBarButtonItem(title: "Check Off", style: .plain, target: self, action: #selector(self.CheckOff))
+                self.navBar.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Check Off", comment: ""), style: .plain, target: self, action: #selector(self.CheckOff))
                 
                 // data modifiers
                 self.sharedModel.getGroupById(gid: self.thisGid).addUid(uid: thisuid) // 1
@@ -203,18 +234,25 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chcekOffCell")!
         
-        cell.backgroundColor = .orange
-        cell.textLabel?.textColor = .black
-        cell.textLabel?.tintColor = .orange
+        
+        
         
 //        let card = sharedModel.flashcard(atIndex: indexPath.row)
         
         // Modify cell
-        sharedModel.getGroupById(gid: thisGid).getCheckoffTitle(index: indexPath.item) { (data: String) in
-            cell.textLabel?.text = data
-        }
-        cell.detailTextLabel?.text = sharedModel.getGroupById(gid: thisGid).getCheckoffLink(index: indexPath.item)
+        let group = sharedModel.getGroupById(gid: thisGid)
+        let prefix: String = group.getCheckoffName(index: indexPath.item)
+        cell.textLabel?.text = "D\(group.getProgressInt()): \(prefix.prefix(9))..."
+        cell.detailTextLabel?.text = group.getCheckoffComment(index: indexPath.item)
         
+        if(group.isVerified(byIndex: indexPath.item)) {
+            cell.backgroundColor = UIColor(red: 0/255, green: 242/255, blue: 255/255, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor(red: 255/255, green: 99/255, blue: 79/255, alpha: 1.0)
+        }
+        
+        cell.selectedBackgroundView?.tintColor = UIColor(white: 1, alpha: 0.1)
+        cell.textLabel?.textColor = .black
         return cell;
     }
     
@@ -222,6 +260,20 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         let vc : CheckoffViewController! = storyboard?.instantiateViewController(withIdentifier: "checkoffSBI") as? CheckoffViewController
         
         vc.navTitletitle = "Check off No.\(indexPath.item)"
+        let group = sharedModel.getGroupById(gid: thisGid)
+        
+        let prefix: String = group.getCheckoffName(index: indexPath.item)
+        
+        let daya:Date = self.sharedModel.getGroupById(gid: thisGid).getCreationDate()
+        let dayb:Date = group.getCheckoffCreationDate(index: indexPath.item)
+        let dayCount = countDays(dateA: daya, dateB: dayb)
+        
+        vc.thisGid = thisGid
+        vc.thisUid = self.sharedUserModel.user!.GetUid()
+        vc.thisCid = group.mCidList[indexPath.item]
+        vc.checkoffProofImageUrl = group.getCheckoffLink(index: indexPath.item)
+        vc.navTitletitle = "\(prefix.prefix(10))'s \(dayCount)th Day Record"
+        vc.detailComment = group.getCheckoffComment(index: indexPath.item)
         //   present(vc, animated: true, completion: nil);
         self.navigationController?.pushViewController(vc, animated: true)
     }

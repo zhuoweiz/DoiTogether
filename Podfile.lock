@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -184,6 +185,8 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
+  - imgurupload-client (0.1.0):
+    - Alamofire (~> 4.4)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -204,6 +207,7 @@ PODS:
     - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -212,10 +216,12 @@ DEPENDENCIES:
   - FirebaseUI
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - imgurupload-client
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Bolts
     - BoringSSL
     - FBSDKCoreKit
@@ -241,6 +247,7 @@ SPEC REPOS:
     - gRPC-RxLibrary
     - GTMOAuth2
     - GTMSessionFetcher
+    - imgurupload-client
     - leveldb-library
     - nanopb
     - Protobuf
@@ -251,6 +258,7 @@ SPEC REPOS:
     - TwitterKit
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
@@ -276,6 +284,7 @@ SPEC CHECKSUMS:
   gRPC-RxLibrary: 3c305f32155024b116b780f389323c73a28197e6
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  imgurupload-client: ad69e853ba4a547fc2676bf703f371875f82962b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
@@ -285,6 +294,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 7fe703032a18fb0367f45aa9f2f7eb2e08304d86
+PODFILE CHECKSUM: bd6e548b756b62fd6447de0a376be0140589343b
 
 COCOAPODS: 1.5.3

@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import imgurupload_client
+import Alamofire
 
 class CreateCheckoffViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
     
@@ -18,6 +20,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
     var imgurl:URL? = nil
     var imgname: String? = nil
     var uploadUrl: String = ""
+    var nudityPassed: Float = 0.1
     
     @IBOutlet weak var pickedImageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
@@ -36,6 +39,9 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
         pickedImageView.clipsToBounds = true
         pickedImageView.layer.cornerRadius = 12.0
     }
+    override func viewWillAppear(_ animated: Bool) {
+        // imageFailMessage.isHidden = true
+    }
     
     @IBAction func addImageAction(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
@@ -43,7 +49,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum;
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             
             self.present(imagePicker, animated: true, completion: nil)
         }
@@ -51,7 +57,13 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        let loadingLabel : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width-30, height: 30))
+        loadingLabel.text = " Image moderation check..."
+        loadingLabel.adjustsFontSizeToFitWidth = true
+        loadingLabel.center = self.view.center
+        imagePicker.view.addSubview(loadingLabel)
+        
+        pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         imgurl = info[UIImagePickerController.InfoKey.imageURL] as? URL
         
         //get filename
@@ -59,10 +71,78 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
             imgname = (imgurl!.absoluteString as NSString).lastPathComponent
         }
         
-        picker.dismiss(animated: true, completion: { () -> Void in
-            self.hasPicked = true;
-            self.pickedImageView.image = self.pickedImage
+        let imageData: Data = (info[UIImagePickerController.InfoKey.editedImage] as! UIImage).pngData()!
+        
+        ImgurUpload.upload(imageData: imageData, apiKey: "3ed9465fe5c8557", completionHandler: { (response) in
+            // print(response ?? "nothing to say")
+            // parse response by getting the link
+            var imglink = "null link"
+            if let object = response!.result.value as? [String:Any], let message = object["data"] as? [String:Any] {
+                
+                for (key, value) in message {
+                    if(key == "link") {
+                        imglink = value as! String
+                    }
+                }
+                // print("WORKING MIRACLE: \(imglink)")
+                //TODO after get response, make an api call from the image detection api
+                let parameters: Parameters = [
+                    "api_user": "1551926080",
+                    "api_secret": "H5gcA6WR9uiRms4T6crJ",
+                    "url": imglink
+                ]
+                print(object)
+                print("imglink is: \(imglink)")
+                Alamofire.request("https://api.sightengine.com/1.0/nudity.json", parameters: parameters).responseJSON { response in
+                    
+                    if let object = response.result.value as? [String:Any], let message = object["nudity"] as? [String:Any] {
+                        
+                        for (key, value) in message {
+                            if(key == "raw") {
+                                let stringfloat = "\(value)"
+                                print(stringfloat)
+                                self.nudityPassed = Float(stringfloat)!
+                                print("SUCCESS nudity is: \(self.nudityPassed)")
+                            }
+                        }
+                    }
+                    print(response)
+                    loadingLabel.isHidden = true
+                    self.imagePicker.view.willRemoveSubview(loadingLabel) // NOT WORKING
+                    picker.dismiss(animated: true, completion: { () -> Void in
+                        if(self.nudityPassed > 0.80) {
+                            self.hasPicked = false;
+                            self.triggerModerationFail()
+                        } else {
+                            self.hasPicked = true;
+                            self.pickedImageView.image = self.pickedImage
+                        }
+                    })
+                }
+            }
+            
+//            guard let jsonArray = response as? [[String: Any]] else {
+//                return
+//            }
+//            for dic in jsonArray {
+//                guard let title = dic["link"] as? String else { return }
+//                print(title) //Output
+//            }
+
         })
+        
+        
+    }
+    
+    func triggerModerationFail() {
+        // animate a message about moderation fail
+//        let failMessageLabel : UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width-30, height: 30))
+//        failMessageLabel.text = " Image moderation check failed"
+//        failMessageLabel.adjustsFontSizeToFitWidth = true
+//        failMessageLabel.textColor = .red
+//        failMessageLabel.center = self.view.center
+//        self.view.addSubview(failMessageLabel)
+        // imageFailMessage.isHidden = false
     }
     
     @IBAction func doneCheckOff(_ sender: UIButton) {
@@ -147,6 +227,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
         // Add a new document in collection "cities"
         db.collection("checkoffs").document("\(self.thisuid)\(self.thisgid)\(Tformater())").setData([
             "uid": "\(self.thisuid)",
+            "username" : "\(self.sharedUserModel.getusername())",
             "gid": "\(self.thisgid)",
             "imgurl": "\(self.uploadUrl)",
             "dayid": "\(Tformater())",

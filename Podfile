@@ -31,5 +31,9 @@ target 'DuiTogether' do
   #zhuowei: realmdb
   use_frameworks!
   pod 'RealmSwift'
+  
+  #zhuowei: other api
+  pod 'imgurupload-client'
+  pod 'Alamofire', '~> 4.7'
 
 end

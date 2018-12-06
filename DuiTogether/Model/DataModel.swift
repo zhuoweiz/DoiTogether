@@ -90,7 +90,8 @@ class GroupsModel {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                self.getGroupById(gid: gid).mCheckoffList = []
+                self.getGroupById(gid: gid).mCheckoffList = [:]
+                self.getGroupById(gid: gid).mCidList = []
                 for document in querySnapshot!.documents {
                     // let data: Dictionary = document.data() as Dictionary
                     
@@ -98,29 +99,33 @@ class GroupsModel {
                     docRef.getDocument { (document, error) in
                         if let document2 = document, document2.exists {
                             
-                            let thisCid = document2.documentID
-                            print("Firebase: fetch/updating data of checkoff: \(thisCid)")
+                            // DispatchQueue.main.async {
+                                // Perform your async code here
+                                let thisCid = document2.documentID
+                                print("Firebase: fetch/updating data of checkoff: \(thisCid)")
+                                
+                                let data = document2.data()
+                                
+                                let newCheckoff = localCheckoff(
+                                    created: data!["creationdate"] as! Date,
+                                    url: data!["imgurl"] as! String,
+                                    comment: data!["comments"] as! String,
+                                    verified: data!["isVerified"] as! Bool,
+                                    uid: data!["uid"] as! String,
+                                    username: data!["username"] as! String,
+                                    uidlist: data!["verifierList"] as! [String]
+                                )
                             
-                            let data = document2.data()
-                            
-                            let newCheckoff = localCheckoff(
-                                created: data!["creationdate"] as! Date,
-                                url: data!["imgurl"] as! String,
-                                comment: data!["comments"] as! String,
-                                verified: data!["isVerified"] as! Bool,
-                                uid: data!["uid"] as! String,
-                                uidlist: data!["verifierList"] as! [String]
-                            )
-                            // 1 - add checkoff to the checkoflist on the group
-                            self.getGroupById(gid: data!["gid"] as! String).addCheckoff(checkoff: newCheckoff)
-                            
+                                // 1 - add checkoff to the checkoflist on the group
+                                self.getGroupById(gid: data!["gid"] as! String).addCheckoff(cid: thisCid, checkoff: newCheckoff)
+                            // }
                         } else {
                             print("Document does not exist")
                         }
                         // completion
                         completion("Completionhander: fetch checkoffs")
                     }
-                }
+                } // after for loop
             }
         }
     }
@@ -151,12 +156,14 @@ class GroupsModel {
         // userModel.addgid
         UserDataModel.shared.user?.AddGroup(gid: gid)
         
+        print("special testing... id \(uid)")
         // firebase.users.user.addgid
         let db = Firestore.firestore()
         let washingtonRef = db.collection("users").document(uid)
             // Atomically add a new region to the "regions" array field.
         washingtonRef.updateData([
             "groups": FieldValue.arrayUnion([gid])
+            
             ])
     }
     public func addGroup(gid: String, group: LocalGroup) {

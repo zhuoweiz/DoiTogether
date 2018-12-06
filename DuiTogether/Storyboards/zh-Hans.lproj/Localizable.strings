@@ -13,6 +13,9 @@
 "Popular" = "热门";
 "Guide" = "入门";
 "Welcome new members" = "欢迎新成员！~";
+"People in" = "活跃人数";
+"with" = "在";
+"Read rules & Create new groups HERE" = "此处阅读用户指南 或 创建帐篷";
 
 // alert
 "Not yet" = "再想想";
@@ -23,3 +26,10 @@
 // tent page
 "People" = "人";
 "no info yet" = "暂无消息";
+
+// group page
+"Check Off" = "签到";
+
+
+// detail checkoff page
+"Verification record" = "签到许可记录";

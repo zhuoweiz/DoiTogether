@@ -24,11 +24,12 @@ class LocalGroup {
     private var mCapacity : Int = 10
     private var mSize : Int = 0
     
-    private var mUidList: [String] = []
+    public var mUidList: [String] = []
     private var mDays: [localDay] = [] // not used yet
     
     // temp solution for the final, will improve for future release
-    public var mCheckoffList: [localCheckoff] = []
+    public var mCheckoffList: [String:localCheckoff] = [:]
+    public var mCidList: [String] = []
     
     private var mProgress = 1
     var mColorCode: [Int]
@@ -128,22 +129,42 @@ class LocalGroup {
         return mCheckoffList.count
     }
     public func getCheckoffLink(index: Int) -> String {
-        return mCheckoffList[index].geturl()
+        return mCheckoffList[mCidList[index]]!.geturl()
     }
-//    public func getCheckoffTitle(index: Int) -> String {
-//
-//    }
+    public func getCheckoffName(index: Int) -> String {
+        return mCheckoffList[mCidList[index]]!.getusername()
+    }
+    public func getCheckoffComment(index: Int) -> String {
+        return mCheckoffList[mCidList[index]]!.getComment()
+    }
+    public func getCheckoffCreationDate(index: Int) -> Date {
+        return mCheckoffList[mCidList[index]]!.getCreationDate()
+    }
+    public func getcheckoffOwnerId(bycid cid: String) -> String {
+        return mCheckoffList[cid]!.getCreatorID()
+    }
+    public func getCheckoffVerifiedList(cid: String) -> [String] {
+        return mCheckoffList[cid]!.verifierList
+    }
+    public func isVerified(byIndex index: Int) -> Bool {
+        return mCheckoffList[mCidList[index]]!.isVerified
+    }
+    public func isVerified(byCid cid: String) -> Bool {
+        return mCheckoffList[cid]!.isVerified
+    }
+    
+    // Currently not using
     public func getCheckoffTitle(index: Int, completion: @escaping ((_ data: String) -> Void)) {
         
-        let thisuid = mCheckoffList[index].getUserID()
+        let thisuid = mCheckoffList[mCidList[index]]!.getCreatorID()
         // let comment = mCheckoffList[index].getComment()
         
         // firebase call get username and comment
         let docRef = db.collection("users").document(thisuid)
         // Force the SDK to fetch the document from the cache. Could also specify
         // FirestoreSource.server or FirestoreSource.default.
-        docRef.getDocument(source: .cache) { (document, error) in
-            if let document = document {
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
                 let emailname = document.data()!["email"] as! String
                 completion("\(emailname.prefix(5))")
             } else {
@@ -172,7 +193,34 @@ class LocalGroup {
             }
         }
     }
-    public func addCheckoff(checkoff: localCheckoff) {
-        mCheckoffList.append(checkoff)
+    public func addCheckoff(cid: String, checkoff: localCheckoff) {
+        mCidList.append(cid)
+        mCheckoffList[cid] = checkoff
+    }
+    public func verifyCheckoff(uid: String, cid: String, completion: @escaping ((_ data: String) -> Void)) {
+        mCheckoffList[cid]!.verifiedBy(uid: uid)
+        var isVerified = mCheckoffList[cid]!.isVerified;
+        
+        //check verification
+        if((getSize()-1 == mCheckoffList[cid]!.verifierList.count) && !mCheckoffList[cid]!.isVerified) {
+            print("good job")
+            mCheckoffList[cid]!.check()
+            isVerified = true;
+        }
+        
+        //firebase
+        let washingtonRef = db.collection("checkoffs").document(cid)
+        // Set the "capital" field of the city 'DC'
+        washingtonRef.updateData([
+            "verifierList": mCheckoffList[cid]!.verifierList,
+            "isVerified": isVerified
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Firebase: VerifierList successfully updated")
+                completion("Completionhander: VerifierList successfully updated")
+            }
+        }
     }
 }

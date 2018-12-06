@@ -15,15 +15,17 @@ class localCheckoff {
     var creationDate: Date
     
     var creatorID: String
+    var creatorName: String
     var checkBook: [String:Bool] = [:] // array of uids with size of n (check self if add record)
-    var verifierList: [String] = []
+    public var verifierList: [String] = []
     
-    init(created cd: Date, url: String, comment: String, verified: Bool, uid: String, uidlist: [String]) {
+    init(created cd: Date, url: String, comment: String, verified: Bool, uid: String, username: String, uidlist: [String]) {
         creationDate = cd
         imgUrl = url
         description = comment
         isVerified = verified
         
+        creatorName = username
         creatorID = uid
         verifierList = uidlist
     }
@@ -40,9 +42,14 @@ class localCheckoff {
     public func check() {
         isVerified = !isVerified;
     }
-    
+    public func verifiedBy(uid: String) {
+        if(!verifierList.contains(uid)) {
+            verifierList.append(uid)
+        }
+    }
+
     // getter
-    public func getUserID() -> String {
+    public func getCreatorID() -> String {
         return creatorID
     }
     public func getComment() -> String {
@@ -50,5 +57,11 @@ class localCheckoff {
     }
     public func geturl() -> String {
         return imgUrl
+    }
+    public func getusername() -> String {
+        return creatorName
+    }
+    public func getCreationDate() -> Date {
+        return creationDate
     }
 }

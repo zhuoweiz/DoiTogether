@@ -22,6 +22,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
+        self.extendedLayoutIncludesOpaqueBars = true
         
         refreshControl.addTarget(self, action: #selector(requestRefresherData), for: .valueChanged)
         
@@ -29,16 +30,21 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
     }()
     @objc func requestRefresherData() {
         print("requesting data...")
-        
+        // update plaza data
         sharedModel.fetchPlazaData { (data: String) in
             print(data)
             self.plazaCollection.reloadData()
         }
         
-        
         self.refresher.beginRefreshing()
         let deadline = DispatchTime.now() + .milliseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadline) {
+            // fix: large title bumping
+//            let top = self.plazaCollection.adjustedContentInset.top
+//            let y = self.refresher.frame.maxY + top
+//            self.plazaCollection.setContentOffset(CGPoint(x: 0, y: y), animated:true)
+//            // self.plazaCollection.setContentOffset(CGPoint(x: 0, y: 1), animated:true)
+            
             self.refresher.endRefreshing()
         }
     }
@@ -57,7 +63,12 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         let layout = plazaCollection.collectionViewLayout as! UICollectionViewFlowLayout;
         plazaCollection.delegate = self
         var sectionInset: UIEdgeInsets
-        sectionInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10);
+        if(view.frame.size.width > 420) {
+            sectionInset = UIEdgeInsets(top: 20,left: 20,bottom: 20,right: 20);
+        } else {
+            sectionInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10);
+        }
+        
         layout.sectionInset = sectionInset
         
         // navbar setup
@@ -75,14 +86,21 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView,
                                  layout collectionViewLayout: UICollectionViewLayout,
                                  sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         if indexPath.section == 0 {
             return CGSize(width: (view.frame.size.width - 40), height: 90)
         } else {
-            // print(view.frame.size.width);
-            if(indexPath.item == 0) {
-                return CGSize(width: (view.frame.size.width - 20), height: (view.frame.size.width - 60)/2)
+            // customize for screen size
+            if(view.frame.size.width>810) {
+                return CGSize(width: (view.frame.size.width - 180)/5, height: (view.frame.size.width - 80)/6)
+            } else if(view.frame.size.width > 420) {
+                return CGSize(width: (view.frame.size.width - 80)/3, height: 140)
             } else {
-                return CGSize(width: (view.frame.size.width - 40)/2, height: (view.frame.size.width - 60)/2)
+                if(indexPath.item == 0) {
+                    return CGSize(width: (view.frame.size.width - 20), height: 140)
+                } else {
+                    return CGSize(width: (view.frame.size.width - 30)/2, height: 140)
+                }
             }
         }
     }
@@ -107,7 +125,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             cell.landingLabel.text = NSLocalizedString("Welcome new members", comment: "")
             cell.landingLabel.textColor = textColor
-            cell.descLabel.text = "Read rules & Create new groups HERE"
+            cell.descLabel.text = NSLocalizedString("Read rules & Create new groups HERE", comment: "")
             cell.descLabel.textColor = textColor
             
             cell.backgroundColor = UIColor(red: CGFloat(0 / 255.0), green: CGFloat(31 / 255.0), blue: CGFloat(63/255.0), alpha: 1.0)
@@ -153,9 +171,9 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
             // Cell content customization
             do {
                 let tempGroup = try sharedModel.getPlazaGroup(atIndex: indexPath.item)
-                cell.CellTaskLabel.text = "\(tempGroup!.getTask()) with \(tempGroup!.getName())"
+                cell.CellTaskLabel.text = "\(tempGroup!.getTask()) \(NSLocalizedString("with", comment: "")) \(tempGroup!.getName())"
                 cell.CellFrequencyLabel.text = "\(tempGroup!.getAmount())  \(tempGroup!.getUnit())/\(NSLocalizedString("Day", comment:""))"
-                cell.CellPopulationLabel.text = "\(tempGroup!.getSize()) people in"
+                cell.CellPopulationLabel.text = "\(tempGroup!.getSize()) \(NSLocalizedString("People in", comment: ""))"
                 
                 let colorCode: [Double] = tempGroup!.getColor()
                 
@@ -206,7 +224,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
                 
                 vc.groupNameNavItem.title = "\(tempGroup!.getName())"
                 vc.complexText = "\(tempGroup!.getTask()) \(tempGroup!.getAmount()) \(tempGroup!.getUnit())/Day"
-                vc.groupsizeText = "\(tempGroup!.getSize()) / \(tempGroup!.getCap()) \(NSLocalizedString("People", comment: ""))"
+                vc.groupsizeText = "\(tempGroup!.getSize()) / \(tempGroup!.getCap()) \(NSLocalizedString("People", comment: ""))>"
                 vc.progressText = "\(tempGroup!.getProgressInt()) / \(tempGroup!.getLength())"
                 vc.checkoffText = NSLocalizedString("no info yet", comment: "")
                 vc.ruleText = "\(tempGroup!.getRuleText())"

@@ -25,20 +25,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     // Do any additional setup after loading the view.
     // initialize FirebaseUI
     
-    // download image from url helper function
-    func download(url: URL, image: UIImageView) {
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let d = data {
-                DispatchQueue.main.async {
-                    image.image = UIImage(data: d)
-                }
-            }
-        }.resume()
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         avatarShow.layer.cornerRadius = 50.0

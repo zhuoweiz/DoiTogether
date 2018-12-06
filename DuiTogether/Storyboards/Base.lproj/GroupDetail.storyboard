@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Group for join-->
+        <!--Tent info-->
         <scene sceneID="DPD-2s-Emx">
             <objects>
                 <viewController storyboardIdentifier="GroupDetailSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HWw-cW-eu6" customClass="GroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,8 +26,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtp-hC-zDu" userLabel="groupInfoView">
                                                 <rect key="frame" x="16" y="8" width="343" height="154"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently have :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHW-oz-HIp">
-                                                        <rect key="frame" x="8" y="40" width="120.5" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tent  members:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHW-oz-HIp">
+                                                        <rect key="frame" x="8" y="40" width="119" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="pgn-hh-0Ez"/>
                                                         </constraints>
@@ -86,6 +86,12 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-Z7-jwX">
+                                                        <rect key="frame" x="8" y="40" width="327" height="30"/>
+                                                        <connections>
+                                                            <action selector="groupmemberAction:" destination="HWw-cW-eu6" eventType="touchUpInside" id="bhk-UH-VOs"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
@@ -100,10 +106,13 @@
                                                     <constraint firstItem="kEy-iB-MHq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eYj-WN-8XZ" secondAttribute="trailing" constant="100" id="Y1K-iW-Inl"/>
                                                     <constraint firstAttribute="trailing" secondItem="in4-C3-EWX" secondAttribute="trailing" constant="8" id="Y2B-eG-Iav"/>
                                                     <constraint firstItem="RJX-5O-Ay4" firstAttribute="top" secondItem="eYj-WN-8XZ" secondAttribute="bottom" constant="8" id="ZnE-4l-k6g"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uTb-Z7-jwX" secondAttribute="trailing" constant="8" id="aIh-Bh-cGI"/>
+                                                    <constraint firstItem="uTb-Z7-jwX" firstAttribute="top" secondItem="WDY-pf-QOi" secondAttribute="bottom" constant="8" id="au0-Jw-Uiv"/>
                                                     <constraint firstItem="kEy-iB-MHq" firstAttribute="centerY" secondItem="eYj-WN-8XZ" secondAttribute="centerY" id="bqG-Cf-gje"/>
                                                     <constraint firstItem="pJU-sU-fY4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jHW-oz-HIp" secondAttribute="trailing" constant="20" id="c1S-Jl-B9t"/>
                                                     <constraint firstItem="RJX-5O-Ay4" firstAttribute="leading" secondItem="jtp-hC-zDu" secondAttribute="leading" constant="8" id="czp-HI-IBe"/>
                                                     <constraint firstAttribute="trailing" secondItem="pJU-sU-fY4" secondAttribute="trailing" constant="8" id="eGQ-8c-zvF"/>
+                                                    <constraint firstItem="uTb-Z7-jwX" firstAttribute="leading" secondItem="jtp-hC-zDu" secondAttribute="leading" constant="8" id="ec8-sa-bu9"/>
                                                     <constraint firstItem="in4-C3-EWX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RJX-5O-Ay4" secondAttribute="trailing" constant="10" id="lPV-qK-wra"/>
                                                     <constraint firstItem="jHW-oz-HIp" firstAttribute="leading" secondItem="jtp-hC-zDu" secondAttribute="leading" constant="8" id="vl5-Tn-b6a"/>
                                                     <constraint firstItem="in4-C3-EWX" firstAttribute="centerY" secondItem="RJX-5O-Ay4" secondAttribute="centerY" id="wxU-5m-ABe"/>
@@ -111,19 +120,19 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpQ-yc-MEU">
-                                                <rect key="frame" x="16" y="170" width="343" height="160"/>
+                                                <rect key="frame" x="16" y="170" width="343" height="140"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIB-MV-4ox">
-                                                        <rect key="frame" x="67.5" y="8" width="267.5" height="144"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIB-MV-4ox">
+                                                        <rect key="frame" x="60.5" y="8" width="274.5" height="124"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-Ob-7dW">
-                                                        <rect key="frame" x="8" y="8" width="51.5" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLF-Ob-7dW">
+                                                        <rect key="frame" x="8" y="8" width="44.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -131,7 +140,7 @@
                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="JIB-MV-4ox" firstAttribute="leading" secondItem="QLF-Ob-7dW" secondAttribute="trailing" constant="8" id="Mm5-Bi-YaP"/>
-                                                    <constraint firstAttribute="height" constant="160" id="PNH-W1-y7d"/>
+                                                    <constraint firstAttribute="height" constant="140" id="PNH-W1-y7d"/>
                                                     <constraint firstItem="QLF-Ob-7dW" firstAttribute="top" secondItem="bpQ-yc-MEU" secondAttribute="top" constant="8" id="SyF-Qh-kUU"/>
                                                     <constraint firstItem="QLF-Ob-7dW" firstAttribute="leading" secondItem="bpQ-yc-MEU" secondAttribute="leading" constant="8" id="UzN-dc-275"/>
                                                     <constraint firstAttribute="trailing" secondItem="JIB-MV-4ox" secondAttribute="trailing" constant="8" id="Y16-DQ-gJi"/>
@@ -140,7 +149,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnr-Zo-5zx">
-                                                <rect key="frame" x="24" y="338" width="327" height="34"/>
+                                                <rect key="frame" x="24" y="318" width="327" height="34"/>
                                                 <color key="backgroundColor" red="0.4657734617" green="0.98926352719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="cpw-aK-sQq"/>
@@ -154,8 +163,8 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-vU-AGT">
-                                                <rect key="frame" x="16" y="338" width="343" height="654"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="16" y="318" width="343" height="674"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chcekOffCell" textLabel="K0h-1k-x0U" detailTextLabel="dsA-eb-T1r" style="IBUITableViewCellStyleValue1" id="QUv-of-Epz">
                                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
@@ -228,7 +237,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iZo-qs-UM8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Group for join" id="gfP-Xa-ltZ"/>
+                    <navigationItem key="navigationItem" title="Tent info" id="gfP-Xa-ltZ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
@@ -251,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfc-Vz-r9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="-185"/>
+            <point key="canvasLocation" x="1373.5999999999999" y="-185.30734632683661"/>
         </scene>
         <!--CreateCheckoffSBI-->
         <scene sceneID="lqX-Yr-jYs">
@@ -269,15 +278,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBT-BU-mG5">
-                                <rect key="frame" x="16" y="72" width="343" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="8aT-R5-4it"/>
-                                </constraints>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBT-BU-mG5">
+                                <rect key="frame" x="16" y="72" width="343" height="320"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w3M-0k-hBp">
-                                <rect key="frame" x="0.0" y="301" width="375" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w3M-0k-hBp">
+                                <rect key="frame" x="0.0" y="461" width="375" height="140"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="VZM-6O-AMP"/>
+                                </constraints>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <prototypes>
@@ -296,7 +305,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check off record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyk-Ho-Lkf">
-                                <rect key="frame" x="8" y="272" width="167" height="21"/>
+                                <rect key="frame" x="8" y="432" width="167" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -311,9 +320,12 @@
                                 <state key="normal" title="Check him/her off">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkoffAction:" destination="i6G-zv-SqA" eventType="touchUpInside" id="G0e-V2-SRI"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check off detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-dk-nKk">
-                                <rect key="frame" x="16" y="240" width="343" height="16"/>
+                                <rect key="frame" x="16" y="400" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -341,8 +353,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Check off record" largeTitleDisplayMode="always" id="ona-HF-cdY"/>
                     <connections>
+                        <outlet property="checkoffButton" destination="WJL-S4-Hf2" id="h11-ki-ees"/>
                         <outlet property="checkoffTableview" destination="w3M-0k-hBp" id="coG-KX-9BT"/>
+                        <outlet property="checkofftableTitle" destination="Tyk-Ho-Lkf" id="yxc-s2-kXs"/>
+                        <outlet property="detailcommentoutlet" destination="0a4-dk-nKk" id="5K8-FN-NJz"/>
                         <outlet property="navItem" destination="ona-HF-cdY" id="I6H-wp-p4K"/>
+                        <outlet property="otherCheckoffTable" destination="w3M-0k-hBp" id="7DW-Jc-aaT"/>
+                        <outlet property="proofimageview" destination="nBT-BU-mG5" id="Me2-aR-ddS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByG-sm-CWS" userLabel="First Responder" sceneMemberID="firstResponder"/>

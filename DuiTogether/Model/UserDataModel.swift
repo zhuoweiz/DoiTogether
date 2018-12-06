@@ -120,6 +120,9 @@ class UserDataModel {
     public func getGroupAt(index: Int) -> LocalGroup? {
         return user!.GetGroupByIndex(index: index) ?? nil
     }
+    public func getusername() -> String {
+        return user?.GetUserEmail() ?? "null name"
+    }
     
     // bool
     public func hasGroupByID(gid: String) -> Bool {

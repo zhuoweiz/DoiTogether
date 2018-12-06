@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Check Off-->
+        <!--Update today's checkoff-->
         <scene sceneID="add-aX-442">
             <objects>
-                <viewController storyboardIdentifier="CreateCheckoffSBI" title="Create Check Off" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SAU-EY-ZNt" customClass="CreateCheckoffViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateCheckoffSBI" title="Update today's checkoff" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SAU-EY-ZNt" customClass="CreateCheckoffViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KmG-Cx-M1c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                                                     <action selector="addImageAction:" destination="SAU-EY-ZNt" eventType="touchUpInside" id="I1a-yq-Yeh"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Default comment" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gtr-Ka-EWQ">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="nothing much to say" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gtr-Ka-EWQ">
                                                 <rect key="frame" x="24" y="295" width="240" height="139"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -73,10 +73,18 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLF-8Q-JOk">
+                                                <rect key="frame" x="123" y="214.5" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="HLF-8Q-JOk" firstAttribute="centerX" secondItem="trJ-dt-tWk" secondAttribute="centerX" id="44w-M1-3Fq"/>
                                             <constraint firstItem="gtr-Ka-EWQ" firstAttribute="centerX" secondItem="trJ-dt-tWk" secondAttribute="centerX" id="6PE-rB-GF3"/>
+                                            <constraint firstItem="HLF-8Q-JOk" firstAttribute="centerY" secondItem="trJ-dt-tWk" secondAttribute="centerY" id="CuW-Ka-1k5"/>
                                             <constraint firstItem="N7y-2b-4en" firstAttribute="top" secondItem="trJ-dt-tWk" secondAttribute="top" constant="16" id="VBM-RE-nq7"/>
                                             <constraint firstItem="tzb-Ja-sPb" firstAttribute="top" secondItem="N7y-2b-4en" secondAttribute="bottom" constant="16" id="Zap-W4-lvW"/>
                                             <constraint firstItem="bsx-XR-vK7" firstAttribute="centerX" secondItem="trJ-dt-tWk" secondAttribute="centerX" id="Zi3-bx-rGM"/>
@@ -95,6 +103,7 @@
                                     <constraint firstItem="y57-Gi-Ggf" firstAttribute="centerX" secondItem="bOa-cy-ZNk" secondAttribute="centerX" id="T8I-DP-Jfe"/>
                                     <constraint firstItem="trJ-dt-tWk" firstAttribute="top" secondItem="bOa-cy-ZNk" secondAttribute="top" constant="8" id="YQv-3X-ZNx"/>
                                     <constraint firstItem="y57-Gi-Ggf" firstAttribute="top" secondItem="trJ-dt-tWk" secondAttribute="bottom" constant="8" id="amU-5y-yza"/>
+                                    <constraint firstItem="trJ-dt-tWk" firstAttribute="centerX" secondItem="bOa-cy-ZNk" secondAttribute="centerX" id="bee-fi-Fmy"/>
                                     <constraint firstItem="trJ-dt-tWk" firstAttribute="leading" secondItem="bOa-cy-ZNk" secondAttribute="leading" constant="16" id="der-KJ-a8s"/>
                                     <constraint firstAttribute="bottom" secondItem="y57-Gi-Ggf" secondAttribute="bottom" constant="24" id="fhY-iy-y5Z"/>
                                     <constraint firstAttribute="trailing" secondItem="trJ-dt-tWk" secondAttribute="trailing" constant="16" id="q7b-cc-7z4"/>
@@ -104,9 +113,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="bOa-cy-ZNk" firstAttribute="centerX" secondItem="KmG-Cx-M1c" secondAttribute="centerX" id="25W-T8-dQr"/>
                             <constraint firstItem="bOa-cy-ZNk" firstAttribute="bottom" secondItem="10l-pr-2ck" secondAttribute="bottom" id="2Bm-s6-5Ov"/>
                             <constraint firstItem="bOa-cy-ZNk" firstAttribute="trailing" secondItem="10l-pr-2ck" secondAttribute="trailing" id="TNo-8r-UFu"/>
+                            <constraint firstItem="bOa-cy-ZNk" firstAttribute="leading" secondItem="10l-pr-2ck" secondAttribute="leading" id="Vnq-ye-Kdy"/>
                             <constraint firstItem="bOa-cy-ZNk" firstAttribute="width" secondItem="KmG-Cx-M1c" secondAttribute="width" id="XIl-qe-6Br"/>
+                            <constraint firstItem="bOa-cy-ZNk" firstAttribute="trailing" secondItem="10l-pr-2ck" secondAttribute="trailing" id="b6x-LZ-eFl"/>
                             <constraint firstItem="bOa-cy-ZNk" firstAttribute="leading" secondItem="10l-pr-2ck" secondAttribute="leading" id="jFX-Fp-kJ4"/>
                             <constraint firstItem="bOa-cy-ZNk" firstAttribute="top" secondItem="10l-pr-2ck" secondAttribute="top" id="rAj-K7-Q4s"/>
                         </constraints>

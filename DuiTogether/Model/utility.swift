@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Uitility {
     
@@ -44,4 +45,16 @@ public func countDays(dateA : Date, dateB: Date) -> Int {
     let diffInDays = Calendar.current.dateComponents([.day], from: dateA, to: dateB).day
     // TODO update progress in the future
     return diffInDays ?? -1
+}
+
+// download image from url helper function
+public func download(url: URL, image: UIImageView) {
+    
+    URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let d = data {
+            DispatchQueue.main.async {
+                image.image = UIImage(data: d)
+            }
+        }
+        }.resume()
 }
