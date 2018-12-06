@@ -14,6 +14,9 @@
 		0D31909D21B6C06A004A4BB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909B21B6C06A004A4BB3 /* Info.plist */; };
 		0D31909E21B6C06A004A4BB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909B21B6C06A004A4BB3 /* Info.plist */; };
 		0D3190A821B6C61B004A4BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D3190AA21B6C61B004A4BB3 /* InfoPlist.strings */; };
+		0D3190AC21B7676B004A4BB3 /* CheckoffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3190AB21B7676B004A4BB3 /* CheckoffViewController.swift */; };
+		0D3190AE21B785AF004A4BB3 /* CreateCheckoff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3190AD21B785AF004A4BB3 /* CreateCheckoff.storyboard */; };
+		0D3190B021B78C51004A4BB3 /* CreateCheckoffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3190AF21B78C51004A4BB3 /* CreateCheckoffViewController.swift */; };
 		0D5195072193EF44007939D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5195062193EF43007939D7 /* AppDelegate.swift */; };
 		0D5195092193EF44007939D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5195082193EF44007939D7 /* ViewController.swift */; };
 		0D51950C2193EF44007939D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D51950A2193EF44007939D7 /* Main.storyboard */; };
@@ -37,12 +40,12 @@
 		0DF11E2221A8D57A0004EDC4 /* utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2121A8D57A0004EDC4 /* utility.swift */; };
 		0DF11E2421A969630004EDC4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2321A969630004EDC4 /* DataModel.swift */; };
 		0DF11E2621A969D20004EDC4 /* LocalGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2521A969D20004EDC4 /* LocalGroup.swift */; };
-		0DF11E2A21A98FBB0004EDC4 /* GroupPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2921A98FBB0004EDC4 /* GroupPageViewController.swift */; };
 		0DF11E2C21AA326F0004EDC4 /* GroupCheckOffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2B21AA326F0004EDC4 /* GroupCheckOffTableViewController.swift */; };
 		0DF11E2E21AAAC890004EDC4 /* MyTentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2D21AAAC890004EDC4 /* MyTentsViewController.swift */; };
 		0DF11E3221AAB2850004EDC4 /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3421AAB2850004EDC4 /* ProfileStoryboard.storyboard */; };
 		0DF11E3821AAB4DE0004EDC4 /* GroupDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3A21AAB4DE0004EDC4 /* GroupDetail.storyboard */; };
 		0DF11E3E21AAB7280004EDC4 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */; };
+		0DF6829C21B8951400C9F726 /* LocalCheckoff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6829B21B8951400C9F726 /* LocalCheckoff.swift */; };
 		86D378983A2431301A6023CE /* Pods_DuiTogetherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944AEC381471A3BB8273DBDB /* Pods_DuiTogetherUITests.framework */; };
 		8F40AF4EE6C0BB6E5241956B /* Pods_DuiTogetherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B96DC5BBF13D3E8D2776C06 /* Pods_DuiTogetherTests.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +76,9 @@
 		0D31909321B6BA64004A4BB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		0D31909B21B6C06A004A4BB3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3190A921B6C61B004A4BB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0D3190AB21B7676B004A4BB3 /* CheckoffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoffViewController.swift; path = DuiTogether/ViewController/CheckoffViewController.swift; sourceTree = SOURCE_ROOT; };
+		0D3190AD21B785AF004A4BB3 /* CreateCheckoff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateCheckoff.storyboard; sourceTree = "<group>"; };
+		0D3190AF21B78C51004A4BB3 /* CreateCheckoffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateCheckoffViewController.swift; path = DuiTogether/ViewController/CreateCheckoffViewController.swift; sourceTree = SOURCE_ROOT; };
 		0D5195032193EF43007939D7 /* DuiTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuiTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D5195062193EF43007939D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D5195082193EF44007939D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +107,6 @@
 		0DF11E2121A8D57A0004EDC4 /* utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = utility.swift; path = DuiTogether/Model/utility.swift; sourceTree = SOURCE_ROOT; };
 		0DF11E2321A969630004EDC4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0DF11E2521A969D20004EDC4 /* LocalGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGroup.swift; sourceTree = "<group>"; };
-		0DF11E2921A98FBB0004EDC4 /* GroupPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPageViewController.swift; sourceTree = "<group>"; };
 		0DF11E2B21AA326F0004EDC4 /* GroupCheckOffTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCheckOffTableViewController.swift; path = DuiTogether/DetailModel/GroupCheckOffTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		0DF11E2D21AAAC890004EDC4 /* MyTentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTentsViewController.swift; sourceTree = "<group>"; };
 		0DF11E3321AAB2850004EDC4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/ProfileStoryboard.storyboard"; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 		0DF11E3C21AAB4E00004EDC4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GroupDetail.strings"; sourceTree = "<group>"; };
 		0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		0DF11E3F21AB49C10004EDC4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0DF6829B21B8951400C9F726 /* LocalCheckoff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCheckoff.swift; sourceTree = "<group>"; };
 		6B96DC5BBF13D3E8D2776C06 /* Pods_DuiTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuiTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A5FB93F4EC381C0D8EFF95 /* Pods-DuiTogetherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogetherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogetherTests/Pods-DuiTogetherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B6EB822E88637A14E3729A /* Pods-DuiTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogether/Pods-DuiTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 				0DAAF45221A558D500AC295A /* User.swift */,
 				0D0D963821ABCFD5000BCCEF /* UserDataModel.swift */,
 				0DF11E2521A969D20004EDC4 /* LocalGroup.swift */,
+				0DF6829B21B8951400C9F726 /* LocalCheckoff.swift */,
 				0DF11E2321A969630004EDC4 /* DataModel.swift */,
 			);
 			path = Model;
@@ -237,9 +244,10 @@
 				0DAAF43F21A2A69700AC295A /* PlazaViewController.swift */,
 				0DAAF45421A6551200AC295A /* LoginViewController.swift */,
 				0DAAF45A21A80FCE00AC295A /* CreateGroupViewController.swift */,
-				0DF11E2921A98FBB0004EDC4 /* GroupPageViewController.swift */,
+				0D3190AF21B78C51004A4BB3 /* CreateCheckoffViewController.swift */,
 				0DF11E1F21A8BC400004EDC4 /* GroupViewController.swift */,
 				0DF11E2D21AAAC890004EDC4 /* MyTentsViewController.swift */,
+				0D3190AB21B7676B004A4BB3 /* CheckoffViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				0DF11E3421AAB2850004EDC4 /* ProfileStoryboard.storyboard */,
 				0D51950A2193EF44007939D7 /* Main.storyboard */,
 				0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */,
+				0D3190AD21B785AF004A4BB3 /* CreateCheckoff.storyboard */,
 				0DF11E3A21AAB4DE0004EDC4 /* GroupDetail.storyboard */,
 				0D5195122193EF45007939D7 /* LaunchScreen.storyboard */,
 			);
@@ -414,6 +423,7 @@
 				0D5195142193EF45007939D7 /* LaunchScreen.storyboard in Resources */,
 				0D31908F21B6B8B2004A4BB3 /* Localizable.strings in Resources */,
 				0DF11E3821AAB4DE0004EDC4 /* GroupDetail.storyboard in Resources */,
+				0D3190AE21B785AF004A4BB3 /* CreateCheckoff.storyboard in Resources */,
 				0D8AF9D4219A7246006BD567 /* GoogleService-Info.plist in Resources */,
 				0DF11E3221AAB2850004EDC4 /* ProfileStoryboard.storyboard in Resources */,
 				0D5195112193EF45007939D7 /* Assets.xcassets in Resources */,
@@ -616,7 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DAAF45921A7F08700AC295A /* PlazaPopularCollectionReusableView.swift in Sources */,
-				0DF11E2A21A98FBB0004EDC4 /* GroupPageViewController.swift in Sources */,
+				0D3190B021B78C51004A4BB3 /* CreateCheckoffViewController.swift in Sources */,
 				0DF11E2621A969D20004EDC4 /* LocalGroup.swift in Sources */,
 				0D5195092193EF44007939D7 /* ViewController.swift in Sources */,
 				0DF11E2E21AAAC890004EDC4 /* MyTentsViewController.swift in Sources */,
@@ -628,8 +638,10 @@
 				0DF11E2221A8D57A0004EDC4 /* utility.swift in Sources */,
 				0DAAF45B21A80FCE00AC295A /* CreateGroupViewController.swift in Sources */,
 				0DF11E2021A8BC400004EDC4 /* GroupViewController.swift in Sources */,
+				0DF6829C21B8951400C9F726 /* LocalCheckoff.swift in Sources */,
 				0D5195072193EF44007939D7 /* AppDelegate.swift in Sources */,
 				0D51950F2193EF44007939D7 /* DuiTogether.xcdatamodeld in Sources */,
+				0D3190AC21B7676B004A4BB3 /* CheckoffViewController.swift in Sources */,
 				0D31908521B673A4004A4BB3 /* TentDataCollectionViewCell.swift in Sources */,
 				0DAAF45321A558D500AC295A /* User.swift in Sources */,
 				0D0D963921ABCFD5000BCCEF /* UserDataModel.swift in Sources */,

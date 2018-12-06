@@ -33,6 +33,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     @IBOutlet weak var progressOutlet: UILabel!
     @IBOutlet weak var checkOffOverviewOutlet: UILabel!
     @IBOutlet weak var ruleTextOutlet: UITextView!
+
     
     // ui passed in var
     var groupsizeText = ""
@@ -48,7 +49,10 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tabBarController?.tabBar.isHidden = true
+        checkOffTable.reloadData()
+        checkOffTable.delaysContentTouches = false
         
         // UI pre setting
         JoinButtonOutlet.layer.cornerRadius = 6;
@@ -61,11 +65,12 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         checkOffOverviewOutlet.text = checkoffText
         ruleTextOutlet.text = ruleText
         
-        // Show setup
+        // UIshow set up Show setup
         if(hasTent) {
             JoinButtonOutlet.isHidden = true
             checkOffTable.isHidden = false
             bigScrollView.isScrollEnabled = true
+            navBar.rightBarButtonItem = UIBarButtonItem(title: "Check Off", style: .plain, target: self, action: #selector(CheckOff))
         } else {
             JoinButtonOutlet.isHidden = false
             checkOffTable.isHidden = true
@@ -73,19 +78,27 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         }
         
         // Should have stay unchanged
-        checkOffTable.isScrollEnabled = false;
-        
-        navBar.rightBarButtonItem = UIBarButtonItem(title: "CheckOff", style: .plain, target: self, action: #selector(CheckOff))
+//        checkOffTable.isScrollEnabled = false;
     }
     
     // helper function
     @objc func CheckOff() {
-        print("check off")
+        print("check off button pressed")
+        
+        // Method one, instantiate
+
+        // method two, just peform segue
+        performSegue(withIdentifier: "CreateCheckoffSI", sender: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     override func viewDidAppear(_ animated: Bool) {
         // setup view did load here
-        checkOffTable.reloadData()
+        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
+            self.checkOffTable.reloadData()
+        }
     }
     
     var completionHandler: GCompletionHandler?
@@ -112,12 +125,13 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
             let okAction = UIAlertAction(title: NSLocalizedString("Yes I am", comment: ""), style: .default, handler: { action in
                 
                 print("Alert ok action")
-                
-                // hide button, show table
                 let thisuid = self.sharedUserModel.user!.GetUid()
+                
+                // UIshow change
                 self.JoinButtonOutlet.isHidden = true
                 self.checkOffTable.isHidden = false
                 self.bigScrollView.isScrollEnabled = true
+                self.navBar.rightBarButtonItem = UIBarButtonItem(title: "Check Off", style: .plain, target: self, action: #selector(self.CheckOff))
                 
                 // data modifiers
                 self.sharedModel.getGroupById(gid: self.thisGid).addUid(uid: thisuid) // 1
@@ -183,11 +197,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10;
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: get the detailed check off page
+        return sharedModel.getGroupById(gid: thisGid).getCheckoffAmount();
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -195,38 +205,45 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         
         cell.backgroundColor = .orange
         cell.textLabel?.textColor = .black
-        
-        cell.tintColor = .black
-        cell.textLabel?.tintColor = .white
+        cell.textLabel?.tintColor = .orange
         
 //        let card = sharedModel.flashcard(atIndex: indexPath.row)
         
         // Modify cell
-        cell.textLabel?.text = "check in record"
+        sharedModel.getGroupById(gid: thisGid).getCheckoffTitle(index: indexPath.item) { (data: String) in
+            cell.textLabel?.text = data
+        }
+        cell.detailTextLabel?.text = sharedModel.getGroupById(gid: thisGid).getCheckoffLink(index: indexPath.item)
         
         return cell;
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc : CheckoffViewController! = storyboard?.instantiateViewController(withIdentifier: "checkoffSBI") as? CheckoffViewController
+        
+        vc.navTitletitle = "Check off No.\(indexPath.item)"
+        //   present(vc, animated: true, completion: nil);
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
+    // helper functions TODO
+    public func fetchCheckoffTableData(completion: @escaping ((_ data: String) -> Void)) {
+        
+        
+        // completion
+        completion("fetch data completion")
+    }
     
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // 1) Delete the data from model
-//            sharedModel.removeFlashcard(atIndex: indexPath.row);
-            
-            // 2) Delete the cell (UI)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // 1) Delete the data from model
+////            sharedModel.removeFlashcard(atIndex: indexPath.row);
+//
+//            // 2) Delete the cell (UI)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     // scroll view setting
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -244,10 +261,21 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
             // then we are at the end
             print("scrolling to bottom!")
             checkOffTable.isScrollEnabled = true;
-        } else {
-            checkOffTable.isScrollEnabled = false;
-            print("just scrolling...")
             
+        } else {
+            bigScrollView.isScrollEnabled = true;
+            checkOffTable.isScrollEnabled = true;
+            print("just scrolling...")
+        }
+    }
+    
+    // prepare
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CreateCheckoffSI" {
+            if let destinationVC = segue.destination as? CreateCheckoffViewController {
+                destinationVC.thisgid = thisGid
+                destinationVC.thisuid = self.sharedUserModel.user!.GetUid() // must be logged in to use the segue
+            }
         }
     }
 }

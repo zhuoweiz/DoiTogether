@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import FirebaseFirestore
 
 class localUser {
 
@@ -52,6 +52,16 @@ class localUser {
     public func clearGroups() {
         groups = []
     }
+    public func updateProgress() {
+        for thisgid in groups {
+            let daya:Date = GroupsModel.shared.getGroupById(gid: thisgid).getCreationDate()
+            let dayb:Date = Date()
+            let dayCount = countDays(dateA: daya, dateB: dayb)
+            
+            // local & firebase BIGTEST
+            GroupsModel.shared.getGroupById(gid: thisgid).setProgress(dayCount, thisgid)
+        }
+    }
     
     // bool
     public func hasGroupByID(gid: String) -> Bool {
@@ -63,43 +73,18 @@ class localUser {
     }
 }
 
+// NOT WORKING, not yet supported
 class localDay {
     // time stamps
     let startDay: Int
     let endDay: Int
     
-    var checkList: [localCheckIn] = []
+    var checkList: [localCheckoff] = []
     
     // init
     init(start: Int, userAmount: Int) {
         startDay = start;
         endDay = startDay + 1;
-        
-        for _ in 1...userAmount {
-            let temp = localCheckIn()
-            self.checkList.append(temp)
-        }
     }
 }
 
-class localCheckIn {
-    var isCheckedOff = false;
-    var imgUrl: String = "no url";
-    var description: String = "no description";
-    var checkBook: [String:Bool] = [:] // array of uids with size of n (check self if add record)
-    
-    init() {
-        
-    }
-    
-    // Modifiers
-    public func changeUrl(url: String) {
-        imgUrl = url;
-    }
-    public func changeDesc(desc: String) {
-        description = desc
-    }
-    public func check() {
-        isCheckedOff = !isCheckedOff;
-    }
-}

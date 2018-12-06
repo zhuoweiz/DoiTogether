@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DuiTogether/ViewController/CreateGroupViewController.swift"
-            timestampString = "565665671.219452"
+            timestampString = "565751241.187405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -103,179 +103,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DuiTogether/ViewController/PlazaViewController.swift"
-            timestampString = "565665671.219637"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "PlazaViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DuiTogether.PlazaViewController"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.780254"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DuiTogether.PlazaViewController"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.7825691"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DuiTogether.PlazaViewController&gt;"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.784848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DuiTogether.PlazaViewController&gt;"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.786876"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.__deallocating_deinit"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.78882"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DuiTogether/ViewController/PlazaViewController.swift"
-            timestampString = "565665671.219792"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "PlazaViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.sharedModel.getter : DuiTogether.GroupsModel"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.796333"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.sharedModel.setter : DuiTogether.GroupsModel"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.798033"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "140">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DuiTogether.PlazaViewController"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.799515"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.PlazaViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DuiTogether.PlazaViewController&gt;"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/ViewController/PlazaViewController.swift"
-                  timestampString = "564845303.800977"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DuiTogether/Model/DataModel.swift"
-            timestampString = "565665671.219921"
+            timestampString = "565751241.187512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -291,11 +120,11 @@
                   moduleName = "DuiTogether"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/Model/DataModel.swift"
-                  timestampString = "564845303.811708"
+                  timestampString = "565680365.716592"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -306,11 +135,11 @@
                   moduleName = "DuiTogether"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/Model/DataModel.swift"
-                  timestampString = "564845303.8132041"
+                  timestampString = "565680365.71848"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>

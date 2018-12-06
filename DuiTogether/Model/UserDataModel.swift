@@ -56,8 +56,6 @@ class UserDataModel {
                 let data = document.data()
                 let temp: [String] = data!["groups"] as! [String]
                 
-                // print("temptesting... this uid \(uid) has \(temp.count) groups")
-                
                 // attempt to add groupID to this user & add Group if needed
                 self.user?.clearGroups()
                 for thisGid in temp {
@@ -67,15 +65,10 @@ class UserDataModel {
                         let docRef = db.collection("groups").document(thisGid)
                         docRef.getDocument { (document, error) in
                             if let document = document, document.exists {
-                                // let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                                // print("Document data: \(dataDescription)")
-                                
-                                // after get the document, create and add groups to the user groups container
-                                
-                                //                            print("\(document.documentID) => \(String(describing: document.data()))") // For testing data query
                                 
                                 let data: Dictionary! = document.data()
                                 let thisGid: String = document.documentID
+                                let thissize : Int = (data["users"] as! [String]).count
                                 
                                 // add the new group to groupmodel
                                 let newGroup = LocalGroup(
@@ -86,12 +79,18 @@ class UserDataModel {
                                     mCapacity: data["capacity"] as! Int,
                                     mLength: data["length"] as! Int,
                                     mRule: data["rule"] as! String,
-                                    mSize: data["size"] as! Int,
+                                    mSize: thissize,
                                     mColorCode: data["colorCode"] as! [Int],
                                     mProgress: data["progress"] as! Int,
                                     mName: data["name"] as! String,
-                                    creationDate: data["creationDate"] as! NSDate
+                                    creationDate: data["creationDate"] as! Date
                                 )
+                                // add uid to this group
+                                let uidarr = data["users"] as! [String]
+                                for thisuid in uidarr {
+                                    newGroup.addUid(uid: thisuid)
+                                }
+                                
                                 GroupsModel.shared.addGroup(gid: thisGid, group: newGroup)
                             } else {
                                 print("ERROR: Document does not exist for adding gid to login init user")
@@ -110,6 +109,8 @@ class UserDataModel {
                 print("ERROR: Document does not exist")
             }
         }
+        
+        
     }
     
     // getters
@@ -131,6 +132,14 @@ class UserDataModel {
         } else {
             print("ERROR check hasGroupByID when not logged in")
             return false;
+        }
+    }
+    
+    // modifiers, 只更改线上
+    public func updateProgress() {
+        print("temptesting progress... inside updateProgress in userdatamodel")
+        if let user = self.user {
+            user.updateProgress()
         }
     }
 }

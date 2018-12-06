@@ -14,14 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="GroupDetailSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HWw-cW-eu6" customClass="GroupViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wa3-lZ-ZAN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="YXb-JK-IlE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="836"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clb-Bt-Hqd">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtp-hC-zDu" userLabel="groupInfoView">
                                                 <rect key="frame" x="16" y="8" width="343" height="154"/>
@@ -153,8 +153,8 @@
                                                     <action selector="JoinGroupAction:" destination="HWw-cW-eu6" eventType="touchUpInside" id="UlS-AX-pca"/>
                                                 </connections>
                                             </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-vU-AGT">
-                                                <rect key="frame" x="16" y="338" width="343" height="554"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-vU-AGT">
+                                                <rect key="frame" x="16" y="338" width="343" height="654"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chcekOffCell" textLabel="K0h-1k-x0U" detailTextLabel="dsA-eb-T1r" style="IBUITableViewCellStyleValue1" id="QUv-of-Epz">
@@ -222,7 +222,7 @@
                             <constraint firstItem="YXb-JK-IlE" firstAttribute="bottom" secondItem="iZo-qs-UM8" secondAttribute="bottom" id="0K2-ro-fAa"/>
                             <constraint firstItem="YXb-JK-IlE" firstAttribute="top" secondItem="iZo-qs-UM8" secondAttribute="top" id="4gM-6z-u1u"/>
                             <constraint firstItem="clb-Bt-Hqd" firstAttribute="width" secondItem="Wa3-lZ-ZAN" secondAttribute="width" id="4mQ-ye-a4p"/>
-                            <constraint firstItem="clb-Bt-Hqd" firstAttribute="height" secondItem="Wa3-lZ-ZAN" secondAttribute="height" id="E4M-MH-d9v"/>
+                            <constraint firstItem="clb-Bt-Hqd" firstAttribute="height" secondItem="Wa3-lZ-ZAN" secondAttribute="height" id="ATN-7v-eg1"/>
                             <constraint firstItem="YXb-JK-IlE" firstAttribute="trailing" secondItem="iZo-qs-UM8" secondAttribute="trailing" id="ltG-jw-Led"/>
                             <constraint firstItem="YXb-JK-IlE" firstAttribute="leading" secondItem="iZo-qs-UM8" secondAttribute="leading" id="rC2-Ah-sGn"/>
                         </constraints>
@@ -230,7 +230,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Group for join" id="gfP-Xa-ltZ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <size key="freeformSize" width="375" height="900"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="JoinButtonOutlet" destination="Vnr-Zo-5zx" id="XPy-fI-TrG"/>
                         <outlet property="bigScrollView" destination="YXb-JK-IlE" id="8Uu-FX-j7h"/>
@@ -245,40 +246,108 @@
                         <outlet property="ruleTextOutlet" destination="JIB-MV-4ox" id="8Dk-a8-gUg"/>
                         <outlet property="taskComplex" destination="WDY-pf-QOi" id="ut2-GI-ha8"/>
                         <segue destination="i6G-zv-SqA" kind="show" identifier="checkoffSI" id="H2q-w7-LRm"/>
+                        <segue destination="yIl-la-qxd" kind="show" identifier="CreateCheckoffSI" id="YPD-WX-dOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfc-Vz-r9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1374" y="-185"/>
         </scene>
+        <!--CreateCheckoffSBI-->
+        <scene sceneID="lqX-Yr-jYs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateCheckoffSBI" storyboardName="CreateCheckoff" referencedIdentifier="CreateCheckoffSBI" id="yIl-la-qxd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ti1-EI-Uwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2086" y="-622"/>
+        </scene>
         <!--Check off record-->
         <scene sceneID="Nbs-B0-S8R">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="i6G-zv-SqA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkoffSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i6G-zv-SqA" customClass="CheckoffViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OfT-7H-hX5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBT-BU-mG5">
-                                <rect key="frame" x="77.5" y="80" width="220" height="150"/>
+                                <rect key="frame" x="16" y="72" width="343" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="3cj-44-dGa"/>
-                                    <constraint firstAttribute="width" constant="220" id="48j-Ol-cDq"/>
+                                    <constraint firstAttribute="height" constant="160" id="8aT-R5-4it"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w3M-0k-hBp">
+                                <rect key="frame" x="0.0" y="301" width="375" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkoffCell" id="1KX-tU-5Zd">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1KX-tU-5Zd" id="F05-sN-4EB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="i6G-zv-SqA" id="drx-Rl-1i5"/>
+                                    <outlet property="delegate" destination="i6G-zv-SqA" id="Ur2-SW-IWR"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check off record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tyk-Ho-Lkf">
+                                <rect key="frame" x="8" y="272" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJL-S4-Hf2">
+                                <rect key="frame" x="107.5" y="617" width="160" height="30"/>
+                                <color key="backgroundColor" red="0.4657734617" green="0.98926352719999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="VNs-tp-tbG"/>
+                                    <constraint firstAttribute="height" constant="30" id="heP-85-d17"/>
+                                </constraints>
+                                <state key="normal" title="Check him/her off">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check off detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-dk-nKk">
+                                <rect key="frame" x="16" y="240" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nBT-BU-mG5" firstAttribute="centerX" secondItem="OfT-7H-hX5" secondAttribute="centerX" id="63j-fh-KKJ"/>
-                            <constraint firstItem="nBT-BU-mG5" firstAttribute="top" secondItem="Yab-rm-qMz" secondAttribute="top" constant="16" id="a5c-1I-WW8"/>
+                            <constraint firstItem="Yab-rm-qMz" firstAttribute="bottom" secondItem="WJL-S4-Hf2" secondAttribute="bottom" constant="20" id="9ij-h6-gwX"/>
+                            <constraint firstItem="WJL-S4-Hf2" firstAttribute="centerX" secondItem="OfT-7H-hX5" secondAttribute="centerX" id="Boq-BS-oGb"/>
+                            <constraint firstItem="Yab-rm-qMz" firstAttribute="trailing" secondItem="nBT-BU-mG5" secondAttribute="trailing" constant="16" id="CAm-Ry-ANo"/>
+                            <constraint firstItem="w3M-0k-hBp" firstAttribute="leading" secondItem="Yab-rm-qMz" secondAttribute="leading" id="KyN-9g-Gcq"/>
+                            <constraint firstItem="Yab-rm-qMz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Tyk-Ho-Lkf" secondAttribute="trailing" constant="200" id="NNp-l7-2z1"/>
+                            <constraint firstItem="Yab-rm-qMz" firstAttribute="trailing" secondItem="0a4-dk-nKk" secondAttribute="trailing" constant="16" id="Ncu-ky-BVr"/>
+                            <constraint firstItem="0a4-dk-nKk" firstAttribute="top" secondItem="nBT-BU-mG5" secondAttribute="bottom" constant="8" id="SpE-Xg-fkK"/>
+                            <constraint firstItem="WJL-S4-Hf2" firstAttribute="top" secondItem="w3M-0k-hBp" secondAttribute="bottom" constant="16" id="cHU-Kg-gJL"/>
+                            <constraint firstItem="nBT-BU-mG5" firstAttribute="leading" secondItem="Yab-rm-qMz" secondAttribute="leading" constant="16" id="cv8-oe-TCq"/>
+                            <constraint firstItem="Tyk-Ho-Lkf" firstAttribute="leading" secondItem="Yab-rm-qMz" secondAttribute="leading" constant="8" id="gR2-fw-4YF"/>
+                            <constraint firstItem="nBT-BU-mG5" firstAttribute="top" secondItem="Yab-rm-qMz" secondAttribute="top" constant="8" id="gTr-ZG-B3h"/>
+                            <constraint firstItem="w3M-0k-hBp" firstAttribute="trailing" secondItem="Yab-rm-qMz" secondAttribute="trailing" id="gZS-Q4-o7P"/>
+                            <constraint firstItem="w3M-0k-hBp" firstAttribute="top" secondItem="Tyk-Ho-Lkf" secondAttribute="bottom" constant="8" id="p16-Ie-0Ks"/>
+                            <constraint firstItem="0a4-dk-nKk" firstAttribute="leading" secondItem="Yab-rm-qMz" secondAttribute="leading" constant="16" id="qPJ-0M-Mjc"/>
+                            <constraint firstItem="Tyk-Ho-Lkf" firstAttribute="top" secondItem="0a4-dk-nKk" secondAttribute="bottom" constant="16" id="y4s-f1-TNU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yab-rm-qMz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Check off record" id="ona-HF-cdY"/>
+                    <navigationItem key="navigationItem" title="Check off record" largeTitleDisplayMode="always" id="ona-HF-cdY"/>
+                    <connections>
+                        <outlet property="checkoffTableview" destination="w3M-0k-hBp" id="coG-KX-9BT"/>
+                        <outlet property="navItem" destination="ona-HF-cdY" id="I6H-wp-p4K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByG-sm-CWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="-243"/>
+            <point key="canvasLocation" x="2233" y="-97"/>
         </scene>
     </scenes>
 </document>

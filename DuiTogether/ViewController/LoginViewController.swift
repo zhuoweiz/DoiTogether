@@ -48,6 +48,34 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         SignInButtonOutlet.layer.cornerRadius = 6.0
         SignOutButtonOutlet.layer.cornerRadius = 6.0
         
+//        if Auth.auth().currentUser != nil {
+//            // User is signed in.
+//            SignInButtonOutlet.isHidden = true
+//
+//            // show
+//            profileForm.isHidden = false
+//            SignOutButtonOutlet.isHidden = false
+//            avatarShow.isHidden = false
+//
+//            
+//            if let url = Auth.auth().currentUser?.photoURL {
+//                print("downloading image...")
+//                download(url: url.absoluteURL, image: avatarShow)
+//            }
+//            emailShow.text = Auth.auth().currentUser?.email
+//
+//        } else {
+//            // No user is signed in.
+//            avatarShow.isHidden = true
+//            profileForm.isHidden = true
+//            SignOutButtonOutlet.isHidden = true
+//
+//            // show
+//            SignInButtonOutlet.isHidden = false
+//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             // User is signed in.
             SignInButtonOutlet.isHidden = true
@@ -63,7 +91,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 download(url: url.absoluteURL, image: avatarShow)
             }
             emailShow.text = Auth.auth().currentUser?.email
-           
+            
         } else {
             // No user is signed in.
             avatarShow.isHidden = true
@@ -73,10 +101,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             // show
             SignInButtonOutlet.isHidden = false
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
     }
     
     @IBAction func LoginAction(_ sender: UIButton) {

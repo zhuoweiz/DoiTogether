@@ -35,23 +35,25 @@ class GroupsModel {
         }
     }
     
+    // data fetching 1
     public func fetchPlazaData(completion: @escaping ((_ data: String) -> Void)) {
-        // clear this first
-        plazaGroups = []
-        allGroups = [:]
         
         let db = Firestore.firestore()
         db.collection("groups").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                // clear this first
+                self.plazaGroups = []
+                self.allGroups = [:]
+                
                 for document in querySnapshot!.documents {
                     // print("\(document.documentID) => \(document.data())")
                     let tempGid = document.documentID
-                    print("Firebase: fetching data of group: \(tempGid)")
+                    print("Firebase: fetching data of group: \(tempGid) in userModel")
 
                     let data: NSDictionary = document.data() as NSDictionary
-                    
+                    let thissize : Int = (data["users"] as! [String]).count
                     let newGroup = LocalGroup(
                         gid: tempGid,
                         mTask: data.value(forKey: "task") as! String,
@@ -60,18 +62,66 @@ class GroupsModel {
                         mCapacity: data.value(forKey: "capacity") as! Int,
                         mLength: data.value(forKey: "length") as! Int,
                         mRule: data.value(forKey: "rule") as! String,
-                        mSize: data.value(forKey: "size") as! Int,
+                        mSize: thissize,
                         mColorCode: data.value(forKey: "colorCode") as! [Int],
                         mProgress: data.value(forKey: "progress") as! Int,
                         mName: data.value(forKey: "name") as! String,
-                        creationDate: data.value(forKey: "creationDate") as! NSDate
+                        creationDate: data.value(forKey: "creationDate") as! Date
                     )
+                    // add uid to the group
+                    let uidarr = data.value(forKey: "users") as! [String]
+                    for thisuid in uidarr {
+                        newGroup.addUid(uid: thisuid)
+                    }
+                    
                     self.plazaGroups.append(newGroup)
                     self.allGroups[tempGid] = newGroup;
                 }
             }
             // completion
-            completion("fetch data completion")
+            completion("Completionhander: fetch data completion")
+        }
+    }
+    // data fetching 2 - fetchCheckoff
+    public func updateCheckoff(withGid gid: String, completion: @escaping ((_ data: String) -> Void)) {
+        
+        let db = Firestore.firestore()
+        db.collection("groups").document(gid).collection("checkoffs").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.getGroupById(gid: gid).mCheckoffList = []
+                for document in querySnapshot!.documents {
+                    // let data: Dictionary = document.data() as Dictionary
+                    
+                    let docRef = db.collection("checkoffs").document(document.documentID)
+                    docRef.getDocument { (document, error) in
+                        if let document2 = document, document2.exists {
+                            
+                            let thisCid = document2.documentID
+                            print("Firebase: fetch/updating data of checkoff: \(thisCid)")
+                            
+                            let data = document2.data()
+                            
+                            let newCheckoff = localCheckoff(
+                                created: data!["creationdate"] as! Date,
+                                url: data!["imgurl"] as! String,
+                                comment: data!["comments"] as! String,
+                                verified: data!["isVerified"] as! Bool,
+                                uid: data!["uid"] as! String,
+                                uidlist: data!["verifierList"] as! [String]
+                            )
+                            // 1 - add checkoff to the checkoflist on the group
+                            self.getGroupById(gid: data!["gid"] as! String).addCheckoff(checkoff: newCheckoff)
+                            
+                        } else {
+                            print("Document does not exist")
+                        }
+                        // completion
+                        completion("Completionhander: fetch checkoffs")
+                    }
+                }
+            }
         }
     }
     
@@ -88,7 +138,7 @@ class GroupsModel {
         mColorCode: [Int],
         mProgress: Int,
         mName: String,
-        creationDate: NSDate,
+        creationDate: Date,
         uid: String)
     {
         let newGroup = LocalGroup(gid: gid, mTask: mTask, mAmount: mAmount, mUnit: mUnit, mCapacity: mCapacity, mLength: mLength, mRule: mRule, mSize: mSize, mColorCode: mColorCode, mProgress: mProgress, mName: mName, creationDate: creationDate)

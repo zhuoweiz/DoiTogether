@@ -31,7 +31,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         print("requesting data...")
         
         sharedModel.fetchPlazaData { (data: String) in
-            print("finished reloading data...")
+            print(data)
             self.plazaCollection.reloadData()
         }
         

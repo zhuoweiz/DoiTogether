@@ -80,12 +80,17 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
         sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         layout.sectionInset = sectionInset
         
+        // UI improvement
+        signinOutlet.layer.masksToBounds = true
+        signinOutlet.layer.cornerRadius = 6.0
+        
         // refresh control setup
         collectionViewOutlet.refreshControl = refresher
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        
         if Auth.auth().currentUser != nil {
             // User is signed in.
             signinOutlet.isHidden = true
@@ -139,7 +144,9 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
             cell.sizeOutlet.textColor = textColor
             cell.progressLabel.textColor = textColor
             cell.statusOutlet.textColor = textColor
+            
             cell.progressOutlet.progressTintColor = textColor
+            cell.progressOutlet.tintColor = textColor
         }
         print("return tentcell... \(indexPath.item)")
         
@@ -163,6 +170,7 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
             vc.ruleText = "\(tempGroup.getRuleText())"
             vc.hasTent = true
             vc.thisGid = tempGroup.getgid()
+            vc.group = tempGroup
         } else {
             print("Error: out of range in tent vc")
         }

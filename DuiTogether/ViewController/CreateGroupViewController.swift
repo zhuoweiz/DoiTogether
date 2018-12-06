@@ -115,6 +115,9 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                 (133,20,75,234,122,177),
                 (221,221,221,0,0,0),
                 (17,17,17,221,221,221),
+                (255,153,102, 0,0,0), // orange black
+                (0, 250, 250,0,0,0), //light blue black
+                (237, 94, 94, 255,255,255), // red white
                 (170,170,170,0,0,0)
             ]
             let randomColor = Int(arc4random_uniform(15))
@@ -124,7 +127,7 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                              colorDB[randomColor].3,
                              colorDB[randomColor].4,
                              colorDB[randomColor].5]
-            let creationDate = NSDate()
+            let creationDate = Date()
             
             // Database deal & sharedModel deal
             let db = Firestore.firestore()
