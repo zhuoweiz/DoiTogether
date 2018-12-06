@@ -1,0 +1,15 @@
+
+/* Class = "UIViewController"; title = "更新今日记录"; ObjectID = "SAU-EY-ZNt"; */
+"SAU-EY-ZNt.title" = "更新今日记录";
+
+/* Class = "UIButton"; normalTitle = "轻触编辑"; ObjectID = "bsx-XR-vK7"; */
+"bsx-XR-vK7.normalTitle" = "轻触编辑";
+
+/* Class = "UITextView"; text = "没啥说的"; ObjectID = "gtr-Ka-EWQ"; */
+"gtr-Ka-EWQ.text" = "没啥说的";
+
+/* Class = "UILabel"; text = "其他描述"; ObjectID = "tzb-Ja-sPb"; */
+"tzb-Ja-sPb.text" = "其他描述";
+
+/* Class = "UIButton"; normalTitle = "提交"; ObjectID = "y57-Gi-Ggf"; */
+"y57-Gi-Ggf.normalTitle" = "提交";

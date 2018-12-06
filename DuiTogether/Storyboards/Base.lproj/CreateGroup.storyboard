@@ -254,7 +254,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Group" id="zkS-rQ-RHf">
                         <barButtonItem key="backBarButtonItem" title="Lol" id="Lfc-oC-RJj"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="J2Z-Se-WCh">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="J2Z-Se-WCh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gh6-hj-ft0">
                                 <rect key="frame" x="269" y="7" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

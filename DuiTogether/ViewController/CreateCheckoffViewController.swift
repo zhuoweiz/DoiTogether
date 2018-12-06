@@ -18,6 +18,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
     var thisgid = ""
     var thisuid = ""
     var imgurl:URL? = nil
+    var imgData: Data? = nil
     var imgname: String? = nil
     var uploadUrl: String = ""
     var nudityPassed: Float = 0.1
@@ -25,6 +26,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
     @IBOutlet weak var pickedImageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var scrollViewOuelte: UIScrollView!
+    @IBOutlet weak var failMessage: UILabel!
     
     // logic var
     var hasPicked = false;
@@ -40,7 +42,10 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
         pickedImageView.layer.cornerRadius = 12.0
     }
     override func viewWillAppear(_ animated: Bool) {
-        // imageFailMessage.isHidden = true
+        failMessage.isHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
     
     @IBAction func addImageAction(_ sender: Any) {
@@ -65,13 +70,14 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
         
         pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         imgurl = info[UIImagePickerController.InfoKey.imageURL] as? URL
-        
+
         //get filename
         if imgurl != nil {
             imgname = (imgurl!.absoluteString as NSString).lastPathComponent
         }
         
         let imageData: Data = (info[UIImagePickerController.InfoKey.editedImage] as! UIImage).pngData()!
+        imgData = imageData
         
         ImgurUpload.upload(imageData: imageData, apiKey: "3ed9465fe5c8557", completionHandler: { (response) in
             // print(response ?? "nothing to say")
@@ -142,7 +148,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
 //        failMessageLabel.textColor = .red
 //        failMessageLabel.center = self.view.center
 //        self.view.addSubview(failMessageLabel)
-        // imageFailMessage.isHidden = false
+        failMessage.isHidden = false
     }
     
     @IBAction func doneCheckOff(_ sender: UIButton) {
@@ -168,7 +174,7 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
             // let timecode = Tformater()
             let checkoffimgRef = storageRef.child("checkoffimgs/\(thisuid)\(thisgid)\(imgname ?? "nullpath")")
             
-            let _ = checkoffimgRef.putFile(from: imgurl!, metadata: nil) { metadata, error in
+            let _ = checkoffimgRef.putData(imgData!, metadata: nil) { (metadata, error) in
                 guard let metadata = metadata else {
                     // Uh-oh, an error occurred!
                     return
@@ -177,11 +183,6 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
                 let _ = metadata.size
                 // You can also access to download URL after upload.
                 checkoffimgRef.downloadURL { (url, error) in
-//                    if let url = url {
-//                        print("url \(url.absoluteString)")
-//                    } else {
-//                        print("test2")
-//                    }
                     self.uploadUrl = url?.absoluteString ?? "null link"
                     print("success.. \(self.uploadUrl)")
                     self.createCheckoff()
@@ -193,6 +194,32 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
                     }
                 }
             }
+            
+//            let _ = checkoffimgRef.putFile(from: imgurl!, metadata: nil) { metadata, error in
+//                guard let metadata = metadata else {
+//                    // Uh-oh, an error occurred!
+//                    return
+//                }
+//                // Metadata contains file metadata such as size, content-type.
+//                let _ = metadata.size
+//                // You can also access to download URL after upload.
+//                checkoffimgRef.downloadURL { (url, error) in
+////                    if let url = url {
+////                        print("url \(url.absoluteString)")
+////                    } else {
+////                        print("test2")
+////                    }
+//                    self.uploadUrl = url?.absoluteString ?? "null link"
+//                    print("success.. \(self.uploadUrl)")
+//                    self.createCheckoff()
+//
+//                    guard let _ = url else {
+//                        // Uh-oh, an error occurred!
+//                        print("ERROR: image upload in check off")
+//                        return
+//                    }
+//                }
+//            }
             
             // pop vc
             self.navigationController?.popViewController(animated: true)

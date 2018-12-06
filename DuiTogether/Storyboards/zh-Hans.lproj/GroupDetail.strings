@@ -3,25 +3,25 @@
 "JIB-MV-4ox.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "K0h-1k-x0U"; */
-"K0h-1k-x0U.text" = "Title";
+"K0h-1k-x0U.text" = "标题";
 
 /* Class = "UILabel"; text = "Rules :"; ObjectID = "QLF-Ob-7dW"; */
-"QLF-Ob-7dW.text" = "Rules :";
+"QLF-Ob-7dW.text" = "股规则 :";
 
 /* Class = "UILabel"; text = "Total check off required :"; ObjectID = "RJX-5O-Ay4"; */
-"RJX-5O-Ay4.text" = "Total check off required :";
+"RJX-5O-Ay4.text" = "总共需要签到次数 :";
 
 /* Class = "UIButton"; normalTitle = "Join Group"; ObjectID = "Vnr-Zo-5zx"; */
-"Vnr-Zo-5zx.normalTitle" = "Join Group";
+"Vnr-Zo-5zx.normalTitle" = "加入帐篷";
 
 /* Class = "UILabel"; text = "Task complex"; ObjectID = "WDY-pf-QOi"; */
 "WDY-pf-QOi.text" = "Task complex";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "dsA-eb-T1r"; */
-"dsA-eb-T1r.text" = "Detail";
+"dsA-eb-T1r.text" = "细则";
 
 /* Class = "UILabel"; text = "Progress :"; ObjectID = "eYj-WN-8XZ"; */
-"eYj-WN-8XZ.text" = "Progress :";
+"eYj-WN-8XZ.text" = "进度 :";
 
 /* Class = "UINavigationItem"; title = "Group for join"; ObjectID = "gfP-Xa-ltZ"; */
 "gfP-Xa-ltZ.title" = "Group for join";
@@ -30,13 +30,13 @@
 "in4-C3-EWX.text" = "9 / 10";
 
 /* Class = "UILabel"; text = "Currently have :"; ObjectID = "jHW-oz-HIp"; */
-"jHW-oz-HIp.text" = "Currently have :";
+"jHW-oz-HIp.text" = "目前有 :";
 
 /* Class = "UILabel"; text = "in 4 / 10"; ObjectID = "kEy-iB-MHq"; */
 "kEy-iB-MHq.text" = "in 4 / 10";
 
 /* Class = "UINavigationItem"; title = "Check off record"; ObjectID = "ona-HF-cdY"; */
-"ona-HF-cdY.title" = "Check off record";
+"ona-HF-cdY.title" = "签到记录";
 
 /* Class = "UILabel"; text = "n people"; ObjectID = "pJU-sU-fY4"; */
 "pJU-sU-fY4.text" = "n people";

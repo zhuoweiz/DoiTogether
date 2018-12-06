@@ -43,9 +43,9 @@
 		0DF11E2E21AAAC890004EDC4 /* MyTentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF11E2D21AAAC890004EDC4 /* MyTentsViewController.swift */; };
 		0DF11E3221AAB2850004EDC4 /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3421AAB2850004EDC4 /* ProfileStoryboard.storyboard */; };
 		0DF11E3821AAB4DE0004EDC4 /* GroupDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3A21AAB4DE0004EDC4 /* GroupDetail.storyboard */; };
-		0DF11E3E21AAB7280004EDC4 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */; };
 		0DF6829C21B8951400C9F726 /* LocalCheckoff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6829B21B8951400C9F726 /* LocalCheckoff.swift */; };
 		0DF6829D21B9012000C9F726 /* CreateCheckoff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6829F21B9012000C9F726 /* CreateCheckoff.storyboard */; };
+		0DF682A121B9CAD200C9F726 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF682A321B9CAD200C9F726 /* CreateGroup.storyboard */; };
 		86D378983A2431301A6023CE /* Pods_DuiTogetherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944AEC381471A3BB8273DBDB /* Pods_DuiTogetherUITests.framework */; };
 		8F40AF4EE6C0BB6E5241956B /* Pods_DuiTogetherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B96DC5BBF13D3E8D2776C06 /* Pods_DuiTogetherTests.framework */; };
 /* End PBXBuildFile section */
@@ -112,11 +112,13 @@
 		0DF11E3521AAB2980004EDC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		0DF11E3921AAB4DE0004EDC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GroupDetail.storyboard; sourceTree = "<group>"; };
 		0DF11E3C21AAB4E00004EDC4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/GroupDetail.strings"; sourceTree = "<group>"; };
-		0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
 		0DF11E3F21AB49C10004EDC4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0DF6829B21B8951400C9F726 /* LocalCheckoff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCheckoff.swift; sourceTree = "<group>"; };
-		0DF6829E21B9012000C9F726 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/CreateCheckoff.storyboard"; sourceTree = "<group>"; };
 		0DF682A021B9012600C9F726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateCheckoff.storyboard; sourceTree = "<group>"; };
+		0DF682A221B9CAD200C9F726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateGroup.storyboard; sourceTree = "<group>"; };
+		0DF682A521B9CAD800C9F726 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateGroup.strings"; sourceTree = "<group>"; };
+		0DF682A721B9CADF00C9F726 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CreateGroup.strings; sourceTree = "<group>"; };
+		0DF682A821B9CC4A00C9F726 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreateCheckoff.strings"; sourceTree = "<group>"; };
 		6B96DC5BBF13D3E8D2776C06 /* Pods_DuiTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DuiTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A5FB93F4EC381C0D8EFF95 /* Pods-DuiTogetherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogetherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogetherTests/Pods-DuiTogetherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B6EB822E88637A14E3729A /* Pods-DuiTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogether/Pods-DuiTogether.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,7 +272,7 @@
 				0D31909121B6B8B2004A4BB3 /* Localizable.strings */,
 				0DF11E3421AAB2850004EDC4 /* ProfileStoryboard.storyboard */,
 				0D51950A2193EF44007939D7 /* Main.storyboard */,
-				0DF11E3D21AAB7280004EDC4 /* CreateGroup.storyboard */,
+				0DF682A321B9CAD200C9F726 /* CreateGroup.storyboard */,
 				0DF6829F21B9012000C9F726 /* CreateCheckoff.storyboard */,
 				0DF11E3A21AAB4DE0004EDC4 /* GroupDetail.storyboard */,
 				0D5195122193EF45007939D7 /* LaunchScreen.storyboard */,
@@ -428,7 +430,7 @@
 				0D8AF9D4219A7246006BD567 /* GoogleService-Info.plist in Resources */,
 				0DF11E3221AAB2850004EDC4 /* ProfileStoryboard.storyboard in Resources */,
 				0D5195112193EF45007939D7 /* Assets.xcassets in Resources */,
-				0DF11E3E21AAB7280004EDC4 /* CreateGroup.storyboard in Resources */,
+				0DF682A121B9CAD200C9F726 /* CreateGroup.storyboard in Resources */,
 				0D3190A821B6C61B004A4BB3 /* InfoPlist.strings in Resources */,
 				0D51950C2193EF44007939D7 /* Main.storyboard in Resources */,
 			);
@@ -742,10 +744,20 @@
 		0DF6829F21B9012000C9F726 /* CreateCheckoff.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0DF6829E21B9012000C9F726 /* zh-Hans */,
 				0DF682A021B9012600C9F726 /* Base */,
+				0DF682A821B9CC4A00C9F726 /* zh-Hans */,
 			);
 			name = CreateCheckoff.storyboard;
+			sourceTree = "<group>";
+		};
+		0DF682A321B9CAD200C9F726 /* CreateGroup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0DF682A221B9CAD200C9F726 /* Base */,
+				0DF682A521B9CAD800C9F726 /* zh-Hans */,
+				0DF682A721B9CADF00C9F726 /* en */,
+			);
+			name = CreateGroup.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

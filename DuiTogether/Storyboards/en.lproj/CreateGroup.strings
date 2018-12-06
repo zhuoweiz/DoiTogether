@@ -1,0 +1,45 @@
+
+/* Class = "UITextField"; placeholder = "Numbers only (e.g. 4 (Days))"; ObjectID = "17H-4M-qSV"; */
+"17H-4M-qSV.placeholder" = "Numbers only (e.g. 4 (Days))";
+
+/* Class = "UILabel"; text = "User capacity"; ObjectID = "8Ye-4j-jyj"; */
+"8Ye-4j-jyj.text" = "User capacity";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "FyR-AP-3mU"; */
+"FyR-AP-3mU.text" = "Amount";
+
+/* Class = "UIButton"; normalTitle = "User Guide"; ObjectID = "Gh6-hj-ft0"; */
+"Gh6-hj-ft0.normalTitle" = "User Guide";
+
+/* Class = "UILabel"; text = "Duration (days)"; ObjectID = "GuI-af-ZZz"; */
+"GuI-af-ZZz.text" = "Duration (days)";
+
+/* Class = "UIBarButtonItem"; title = "Lol"; ObjectID = "Lfc-oC-RJj"; */
+"Lfc-oC-RJj.title" = "Lol";
+
+/* Class = "UIButton"; normalTitle = "Add Group"; ObjectID = "RuF-Hh-nt1"; */
+"RuF-Hh-nt1.normalTitle" = "Add Group";
+
+/* Class = "UILabel"; text = "Unit"; ObjectID = "bqA-l5-2lK"; */
+"bqA-l5-2lK.text" = "Unit";
+
+/* Class = "UILabel"; text = " Create a name for your group"; ObjectID = "fyc-5k-rbo"; */
+"fyc-5k-rbo.text" = " Create a name for your group";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "pqq-n2-lJJ"; */
+"pqq-n2-lJJ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "Login to create your Tent"; ObjectID = "qMa-z6-mFZ"; */
+"qMa-z6-mFZ.normalTitle" = "Login to create your Tent";
+
+/* Class = "UILabel"; text = "Task"; ObjectID = "wpV-Uc-YWn"; */
+"wpV-Uc-YWn.text" = "Task";
+
+/* Class = "UILabel"; text = "Finally... add rules if needed"; ObjectID = "z6v-gz-RQf"; */
+"z6v-gz-RQf.text" = "Finally... add rules if needed";
+
+/* Class = "UITextField"; placeholder = "e.g. minute"; ObjectID = "zSO-tq-kRX"; */
+"zSO-tq-kRX.placeholder" = "e.g. minute";
+
+/* Class = "UINavigationItem"; title = "Create Group"; ObjectID = "zkS-rQ-RHf"; */
+"zkS-rQ-RHf.title" = "Create Group";
