@@ -52,7 +52,9 @@ class localUser {
     public func clearGroups() {
         groups = []
     }
+    // NOT USING
     public func updateProgress() {
+        print("ERROR: SHOULD NOT SHOW UP")
         for thisgid in groups {
             let daya:Date = GroupsModel.shared.getGroupById(gid: thisgid).getCreationDate()
             let dayb:Date = Date()

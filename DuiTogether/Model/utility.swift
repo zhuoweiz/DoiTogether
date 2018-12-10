@@ -23,7 +23,6 @@ struct Uitility {
         case insufficientFunds(coinsNeeded: Int)
         case outOfStock
     }
-
 }
 
 public func Tformater() -> String {
@@ -35,7 +34,7 @@ public func Tformater() -> String {
     // convert your string to date
     let yourDate = formatter.date(from: myString)
     //then again set the date format whhich type of output you need
-    formatter.dateFormat = "dd-MM-yyyy"
+    formatter.dateFormat = "MM-dd-yyyy"
     // again convert your date to string
     let myStringafd = formatter.string(from: yourDate!)
     return myStringafd

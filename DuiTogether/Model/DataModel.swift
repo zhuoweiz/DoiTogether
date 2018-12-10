@@ -39,9 +39,12 @@ class GroupsModel {
     public func fetchPlazaData(completion: @escaping ((_ data: String) -> Void)) {
         
         let db = Firestore.firestore()
-        db.collection("groups").getDocuments() { (querySnapshot, err) in
+        let groupsRef = db.collection("groups")
+        let query = groupsRef.whereField("visibility", isEqualTo: "")
+        
+        query.getDocuments() { (querySnapshot, err) in
             if let err = err {
-                print("Error getting documents: \(err)")
+                print("Error getting user groups: \(err)")
             } else {
                 // clear this first
                 self.plazaGroups = []
@@ -66,7 +69,8 @@ class GroupsModel {
                         mColorCode: data.value(forKey: "colorCode") as! [Int],
                         mProgress: data.value(forKey: "progress") as! Int,
                         mName: data.value(forKey: "name") as! String,
-                        creationDate: data.value(forKey: "creationDate") as! Date
+                        creationDate: data.value(forKey: "creationDate") as! Date,
+                        mVisibility: data.value(forKey: "visibility") as! String
                     )
                     // add uid to the group
                     let uidarr = data.value(forKey: "users") as! [String]
@@ -86,9 +90,12 @@ class GroupsModel {
     public func updateCheckoff(withGid gid: String, completion: @escaping ((_ data: String) -> Void)) {
         
         let db = Firestore.firestore()
-        db.collection("groups").document(gid).collection("checkoffs").getDocuments() { (querySnapshot, err) in
+        let groupsRef = db.collection("groups")
+        let gRef = groupsRef.document(gid)
+//        whereField("users", arrayContains: UserDataModel.shared.getID())
+        gRef.collection("checkoffs").getDocuments() { (querySnapshot, err) in
             if let err = err {
-                print("Error getting documents: \(err)")
+                print("Error getting checkoffs: \(err)")
             } else {
                 self.getGroupById(gid: gid).mCheckoffList = [:]
                 self.getGroupById(gid: gid).mCidList = []
@@ -108,6 +115,7 @@ class GroupsModel {
                                 
                                 let newCheckoff = localCheckoff(
                                     created: data!["creationdate"] as! Date,
+                                    dayid: data!["dayid"] as! String,
                                     url: data!["imgurl"] as! String,
                                     comment: data!["comments"] as! String,
                                     verified: data!["isVerified"] as! Bool,
@@ -144,9 +152,9 @@ class GroupsModel {
         mProgress: Int,
         mName: String,
         creationDate: Date,
-        uid: String)
+        uid: String, mVisibility: String)
     {
-        let newGroup = LocalGroup(gid: gid, mTask: mTask, mAmount: mAmount, mUnit: mUnit, mCapacity: mCapacity, mLength: mLength, mRule: mRule, mSize: mSize, mColorCode: mColorCode, mProgress: mProgress, mName: mName, creationDate: creationDate)
+        let newGroup = LocalGroup(gid: gid, mTask: mTask, mAmount: mAmount, mUnit: mUnit, mCapacity: mCapacity, mLength: mLength, mRule: mRule, mSize: mSize, mColorCode: mColorCode, mProgress: mProgress, mName: mName, creationDate: creationDate, mVisibility: mVisibility)
         
         // data modifiers
         newGroup.addUid(uid: uid) // add owner to this group
@@ -191,7 +199,13 @@ class GroupsModel {
         }
     }
     public func getGroupById(gid:String) -> LocalGroup {
-        return allGroups[gid]!;
+//        if let result = allGroups[gid] {
+//            return result;
+//        } else {
+//            print("ERROR: trying to getGroupById using non existing gid")
+//            return nil
+//        }
+        return allGroups[gid]!
     }
     public func getAllGroupCount() -> Int {
         return allGroups.count;

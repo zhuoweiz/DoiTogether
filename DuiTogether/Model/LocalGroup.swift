@@ -23,6 +23,7 @@ class LocalGroup {
     
     private var mCapacity : Int = 10
     private var mSize : Int = 0
+    private var mVisibility : String;
     
     public var mUidList: [String] = []
     private var mDays: [localDay] = [] // not used yet
@@ -39,7 +40,7 @@ class LocalGroup {
     let db = Firestore.firestore()
     
     // init, msize is 1 if create new group, is what it is if get data
-    init(gid: String, mTask: String, mAmount: Int, mUnit: String, mCapacity: Int, mLength: Int, mRule: String, mSize: Int, mColorCode: [Int], mProgress: Int, mName: String, creationDate: Date) {
+    init(gid: String, mTask: String, mAmount: Int, mUnit: String, mCapacity: Int, mLength: Int, mRule: String, mSize: Int, mColorCode: [Int], mProgress: Int, mName: String, creationDate: Date, mVisibility: String) {
         groupID = gid
         self.creationDate = creationDate
         
@@ -56,6 +57,7 @@ class LocalGroup {
         self.mColorCode = mColorCode
         
         self.mProgress = mProgress
+        self.mVisibility = mVisibility
         
         mTaskComplex = "\(mTask) \(mAmount) \(mUnit)/Day"
         
@@ -63,6 +65,7 @@ class LocalGroup {
         let daya:Date = creationDate
         let dayb:Date = Date()
         let dayCount = countDays(dateA: daya, dateB: dayb)
+        
         self.setProgress(dayCount, groupID)
         
         // TODO: create all the day objects PROBLEMATIC
@@ -146,6 +149,9 @@ class LocalGroup {
     public func getCheckoffVerifiedList(cid: String) -> [String] {
         return mCheckoffList[cid]!.verifierList
     }
+    public func getCheckoffDayid(index: Int) -> String {
+        return mCheckoffList[mCidList[index]]!.getDayid()
+    }
     public func isVerified(byIndex index: Int) -> Bool {
         return mCheckoffList[mCidList[index]]!.isVerified
     }
@@ -187,9 +193,9 @@ class LocalGroup {
             "progress": newProgress
         ]) { err in
             if let err = err {
-                print("Error updating document: \(err)")
+                print("Error updating document in setProgress: \(err)")
             } else {
-                print("Progress successfully updated")
+                print("Progress successfully updated in setProgress")
             }
         }
     }
@@ -216,7 +222,7 @@ class LocalGroup {
             "isVerified": isVerified
         ]) { err in
             if let err = err {
-                print("Error updating document: \(err)")
+                print("Error updating document in verifyCheckoff: \(err)")
             } else {
                 print("Firebase: VerifierList successfully updated")
                 completion("Completionhander: VerifierList successfully updated")

@@ -83,7 +83,8 @@ class UserDataModel {
                                     mColorCode: data["colorCode"] as! [Int],
                                     mProgress: data["progress"] as! Int,
                                     mName: data["name"] as! String,
-                                    creationDate: data["creationDate"] as! Date
+                                    creationDate: data["creationDate"] as! Date,
+                                    mVisibility: data["visibility"] as! String
                                 )
                                 // add uid to this group
                                 let uidarr = data["users"] as! [String]
@@ -123,6 +124,13 @@ class UserDataModel {
     public func getusername() -> String {
         return user?.GetUserEmail() ?? "null name"
     }
+    public func getID() -> String {
+        if let user = user {
+            return user.uid
+        } else {
+            return "Error: null id"
+        }
+    }
     
     // bool
     public func hasGroupByID(gid: String) -> Bool {
@@ -138,7 +146,7 @@ class UserDataModel {
         }
     }
     
-    // modifiers, 只更改线上
+    // modifiers, 只更改线上 NOT USING
     public func updateProgress() {
         print("temptesting progress... inside updateProgress in userdatamodel")
         if let user = self.user {

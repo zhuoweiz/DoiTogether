@@ -105,9 +105,6 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         
         // Should have stay unchanged
 //        checkOffTable.isScrollEnabled = false;
-        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
-            self.checkOffTable.reloadData()
-        }
     }
     
     // helper function
@@ -125,7 +122,9 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         // update checkoff table
     }
     override func viewDidAppear(_ animated: Bool) {
-        checkOffTable.reloadData()
+        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
+            self.checkOffTable.reloadData()
+        }
     }
     
     
@@ -242,7 +241,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         // Modify cell
         let group = sharedModel.getGroupById(gid: thisGid)
         let prefix: String = group.getCheckoffName(index: indexPath.item)
-        cell.textLabel?.text = "D\(group.getProgressInt()): \(prefix.prefix(9))..."
+        cell.textLabel?.text = "\(group.getCheckoffDayid(index: indexPath.item)): \(prefix.prefix(9))..."
         cell.detailTextLabel?.text = group.getCheckoffComment(index: indexPath.item)
         
         if(group.isVerified(byIndex: indexPath.item)) {
@@ -323,6 +322,8 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     
     // prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // sending segue
         if segue.identifier == "CreateCheckoffSI" {
             if let destinationVC = segue.destination as? CreateCheckoffViewController {
                 destinationVC.thisgid = thisGid

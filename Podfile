@@ -23,10 +23,12 @@ target 'DuiTogether' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'FirebaseUI'
+
   
   #zhuowei: auth
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Google'
+  pod 'FBSDKLoginKit'
   
   #zhuowei: realmdb
   use_frameworks!
@@ -35,5 +37,9 @@ target 'DuiTogether' do
   #zhuowei: other api
   pod 'imgurupload-client'
   pod 'Alamofire', '~> 4.7'
+  
+# UI improvement
+pod 'SkeletonView' # loading view pre look
+pod 'NVActivityIndicatorView' # loading animation set
 
 end

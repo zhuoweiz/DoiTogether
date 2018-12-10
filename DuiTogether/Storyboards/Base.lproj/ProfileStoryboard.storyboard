@@ -32,7 +32,6 @@
                                     <constraint firstAttribute="height" constant="24" id="qeJ-bd-XcF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="edit"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-vB-JsZ" userLabel="FormView">
                                 <rect key="frame" x="16" y="240" width="343" height="182"/>

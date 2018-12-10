@@ -144,7 +144,8 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                 "users": [sharedUserModel.user?.GetUid()], // add uid to the group
                 "creationDate": creationDate,
                 "progress":0,
-                "colorCode": colorCode
+                "colorCode": colorCode,
+                "visibility": ""
                 
             ]) { err in
                 if let err = err {
@@ -153,7 +154,7 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
                     print("Document added with ID: \(ref!.documentID)")
                     
                     // update things after new group creation... add id to owner, change SM with new group & new id in group
-                    self.sharedModel.createGroup(gid: ref!.documentID, mTask: task, mAmount: Int(amount) ?? 0, mUnit: unit, mCapacity: Int(capacity)!, mLength: Int(length)!, mRule: rule, mSize: 1, mColorCode: colorCode, mProgress: 0, mName: name, creationDate: creationDate, uid: (Auth.auth().currentUser?.uid)!)
+                    self.sharedModel.createGroup(gid: ref!.documentID, mTask: task, mAmount: Int(amount) ?? 0, mUnit: unit, mCapacity: Int(capacity)!, mLength: Int(length)!, mRule: rule, mSize: 1, mColorCode: colorCode, mProgress: 0, mName: name, creationDate: creationDate, uid: (Auth.auth().currentUser?.uid)!, mVisibility: "")
                     
                     // after creating a new group, add the group id to user
                     if let user = Auth.auth().currentUser {
@@ -204,6 +205,36 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
         if error != nil {
             //log error
             return
+        }
+        
+        // check if user exists
+        let db = Firestore.firestore()
+        //        var ref: DocumentReference? = nil
+        let docRef = db.collection("users").document("\(user!.uid)")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("user data: \(dataDescription)")
+            } else {
+                print("user does not exist")
+                
+                // create/add a new user and add to the db
+                db.collection("users").document("\(user!.uid)").setData([
+                    "email": "\(user?.email ?? "")",
+                    "avatarUrl": "\(user?.photoURL?.absoluteString ?? "")",
+                    "creationDate" : NSDate(),
+                    "groups": [
+                        
+                    ],
+                    
+                    ]) { err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added")
+                        }
+                }
+            }
         }
         
         // after login create UserDataModel

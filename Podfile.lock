@@ -193,6 +193,9 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - NVActivityIndicatorView (4.4.0):
+    - NVActivityIndicatorView/Presenter (= 4.4.0)
+  - NVActivityIndicatorView/Presenter (4.4.0)
   - Protobuf (3.6.1)
   - Realm (3.11.2):
     - Realm/Headers (= 3.11.2)
@@ -202,12 +205,14 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - SkeletonView (1.4.1)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - FBSDKLoginKit
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -217,7 +222,9 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - imgurupload-client
+  - NVActivityIndicatorView
   - RealmSwift
+  - SkeletonView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -250,10 +257,12 @@ SPEC REPOS:
     - imgurupload-client
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - Protobuf
     - Realm
     - RealmSwift
     - SDWebImage
+    - SkeletonView
     - TwitterCore
     - TwitterKit
 
@@ -287,13 +296,15 @@ SPEC CHECKSUMS:
   imgurupload-client: ad69e853ba4a547fc2676bf703f371875f82962b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
   RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: bd6e548b756b62fd6447de0a376be0140589343b
+PODFILE CHECKSUM: f701aef487133d603f70c67c2528d6d812e6f754
 
 COCOAPODS: 1.5.3

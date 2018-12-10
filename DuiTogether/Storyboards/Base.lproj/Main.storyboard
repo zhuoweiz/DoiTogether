@@ -153,6 +153,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="twt-B2-2Fw" id="Cq2-Q5-TII"/>
                                     <outlet property="delegate" destination="twt-B2-2Fw" id="D1q-dk-KRK"/>
@@ -346,6 +349,9 @@
                                         <outlet property="headerLabel" destination="IKJ-Dn-BRb" id="hmZ-nQ-MaR"/>
                                     </connections>
                                 </collectionReusableView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="sZs-qH-bwg" id="zYe-bM-1BJ"/>
                                     <outlet property="delegate" destination="sZs-qH-bwg" id="HLJ-r7-Hg9"/>

@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 
-
 class PlazaViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var sharedModel = GroupsModel.shared
@@ -61,7 +60,7 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         // Layout setup
         let layout = plazaCollection.collectionViewLayout as! UICollectionViewFlowLayout;
-        plazaCollection.delegate = self
+        //plazaCollection.delegate = self
         var sectionInset: UIEdgeInsets
         if(view.frame.size.width > 420) {
             sectionInset = UIEdgeInsets(top: 20,left: 20,bottom: 20,right: 20);

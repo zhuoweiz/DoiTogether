@@ -9,8 +9,20 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import SkeletonView
 
-class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIApplicationDelegate, SkeletonCollectionViewDataSource {
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "CellIdentifier"
+    }
     
     var sharedModel = GroupsModel.shared
     var sharedUserModel = UserDataModel.shared
@@ -56,6 +68,8 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //  collectionViewOutlet.showAnimatedSkeleton() // skeletonview
+
         
         // Layout setup
         let layout = collectionViewOutlet.collectionViewLayout as! UICollectionViewFlowLayout;
@@ -214,6 +228,36 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
             return
         }
         
+        // check if user exists
+        let db = Firestore.firestore()
+        //        var ref: DocumentReference? = nil
+        let docRef = db.collection("users").document("\(user!.uid)")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("user data: \(dataDescription)")
+            } else {
+                print("user does not exist")
+                
+                // create/add a new user and add to the db
+                db.collection("users").document("\(user!.uid)").setData([
+                    "email": "\(user?.email ?? "")",
+                    "avatarUrl": "\(user?.photoURL?.absoluteString ?? "")",
+                    "creationDate" : NSDate(),
+                    "groups": [
+                        
+                    ],
+                    
+                    ]) { err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added")
+                        }
+                }
+            }
+        }
+        
         // after login create UserDataModel
         UserDataModel.shared.login(email: user!.email!, uid: user!.uid, url: user?.photoURL?.absoluteString ?? "")
         
@@ -235,3 +279,13 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
         navigationController?.navigationBar.prefersLargeTitles = true;
     }
 }
+
+// SkeletonView NOT WORKING
+public protocol SkeletonCollectionViewDataSource: UICollectionViewDataSource {
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier
+}
+
+
+
