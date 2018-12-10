@@ -34,7 +34,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-vB-JsZ" userLabel="FormView">
-                                <rect key="frame" x="16" y="240" width="343" height="182"/>
+                                <rect key="frame" x="16" y="240" width="343" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-UU-Icl">
                                         <rect key="frame" x="151" y="8" width="41" height="21"/>
@@ -53,7 +53,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nn2-ki-FMl">
-                                        <rect key="frame" x="90" y="74" width="163" height="30"/>
+                                        <rect key="frame" x="90" y="120" width="163" height="30"/>
                                         <color key="backgroundColor" red="0.72143659959999995" green="0.71183677909999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="163" id="BYg-WG-lfm"/>
@@ -67,6 +67,13 @@
                                             <action selector="signOutAction:" destination="MFQ-l4-YsZ" eventType="touchUpInside" id="bWJ-MK-lYD"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA9-Gd-e1S">
+                                        <rect key="frame" x="119.5" y="74" width="104" height="30"/>
+                                        <state key="normal" title="Set notification"/>
+                                        <connections>
+                                            <action selector="editNotification:" destination="MFQ-l4-YsZ" eventType="touchUpInside" id="DYT-9K-bdE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -75,9 +82,11 @@
                                     <constraint firstAttribute="trailing" secondItem="iSg-uP-stv" secondAttribute="trailing" constant="20" id="Fze-T5-iOm"/>
                                     <constraint firstItem="w8o-UU-Icl" firstAttribute="centerX" secondItem="vhh-vB-JsZ" secondAttribute="centerX" id="IYk-k1-4WJ"/>
                                     <constraint firstItem="iSg-uP-stv" firstAttribute="leading" secondItem="vhh-vB-JsZ" secondAttribute="leading" constant="20" id="RLF-6Q-CCd"/>
-                                    <constraint firstAttribute="height" constant="182" id="cD2-SL-WPd"/>
-                                    <constraint firstItem="nn2-ki-FMl" firstAttribute="top" secondItem="iSg-uP-stv" secondAttribute="bottom" constant="16" id="ivM-CT-TO9"/>
+                                    <constraint firstItem="VA9-Gd-e1S" firstAttribute="centerX" secondItem="vhh-vB-JsZ" secondAttribute="centerX" id="bB7-62-1mI"/>
+                                    <constraint firstAttribute="height" constant="200" id="cD2-SL-WPd"/>
+                                    <constraint firstItem="VA9-Gd-e1S" firstAttribute="top" secondItem="iSg-uP-stv" secondAttribute="bottom" constant="16" id="jt8-WY-ScR"/>
                                     <constraint firstItem="iSg-uP-stv" firstAttribute="top" secondItem="w8o-UU-Icl" secondAttribute="bottom" constant="8" id="lb4-1B-h41"/>
+                                    <constraint firstItem="nn2-ki-FMl" firstAttribute="top" secondItem="VA9-Gd-e1S" secondAttribute="bottom" constant="16" id="xlh-iE-lFw"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsG-XS-91s">

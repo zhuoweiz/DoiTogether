@@ -11,9 +11,6 @@
 		0D0D963921ABCFD5000BCCEF /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D963821ABCFD5000BCCEF /* UserDataModel.swift */; };
 		0D31908521B673A4004A4BB3 /* TentDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31908421B673A4004A4BB3 /* TentDataCollectionViewCell.swift */; };
 		0D31908F21B6B8B2004A4BB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909121B6B8B2004A4BB3 /* Localizable.strings */; };
-		0D31909D21B6C06A004A4BB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909B21B6C06A004A4BB3 /* Info.plist */; };
-		0D31909E21B6C06A004A4BB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909B21B6C06A004A4BB3 /* Info.plist */; };
-		0D3190A821B6C61B004A4BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D3190AA21B6C61B004A4BB3 /* InfoPlist.strings */; };
 		0D3190AC21B7676B004A4BB3 /* CheckoffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3190AB21B7676B004A4BB3 /* CheckoffViewController.swift */; };
 		0D3190B021B78C51004A4BB3 /* CreateCheckoffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3190AF21B78C51004A4BB3 /* CreateCheckoffViewController.swift */; };
 		0D5195072193EF44007939D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5195062193EF43007939D7 /* AppDelegate.swift */; };
@@ -27,6 +24,9 @@
 		0D8AF9D4219A7246006BD567 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D8AF9D3219A7245006BD567 /* GoogleService-Info.plist */; };
 		0D8AF9D5219A7246006BD567 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D8AF9D3219A7245006BD567 /* GoogleService-Info.plist */; };
 		0D8AF9D6219A7246006BD567 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D8AF9D3219A7245006BD567 /* GoogleService-Info.plist */; };
+		0DA7246A21BE902F007D64CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7246D21BE902F007D64CE /* Info.plist */; };
+		0DA7246B21BE902F007D64CE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7246D21BE902F007D64CE /* Info.plist */; };
+		0DA7247021BE90B7007D64CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7246F21BE90B7007D64CE /* Default-568h@2x.png */; };
 		0DAAF44021A2A69700AC295A /* PlazaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAF43F21A2A69700AC295A /* PlazaViewController.swift */; };
 		0DAAF44B21A3E59C00AC295A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAAF44A21A3E59C00AC295A /* MapKit.framework */; };
 		0DAAF44D21A3FE6E00AC295A /* PlazaDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAF44C21A3FE6E00AC295A /* PlazaDataCollectionViewCell.swift */; };
@@ -74,8 +74,6 @@
 		0D31908421B673A4004A4BB3 /* TentDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TentDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		0D31909021B6B8B2004A4BB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0D31909321B6BA64004A4BB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		0D31909B21B6C06A004A4BB3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0D3190A921B6C61B004A4BB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0D3190AB21B7676B004A4BB3 /* CheckoffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoffViewController.swift; path = DuiTogether/ViewController/CheckoffViewController.swift; sourceTree = SOURCE_ROOT; };
 		0D3190AF21B78C51004A4BB3 /* CreateCheckoffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateCheckoffViewController.swift; path = DuiTogether/ViewController/CreateCheckoffViewController.swift; sourceTree = SOURCE_ROOT; };
 		0D5195032193EF43007939D7 /* DuiTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuiTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +91,9 @@
 		0D51952B2193EF45007939D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D8AF9D2219A702F006BD567 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0D8AF9D3219A7245006BD567 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0DA7246C21BE902F007D64CE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
+		0DA7246E21BE904F007D64CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		0DA7246F21BE90B7007D64CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0DAAF43F21A2A69700AC295A /* PlazaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlazaViewController.swift; sourceTree = "<group>"; };
 		0DAAF44721A3E59900AC295A /* DuiTogether.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DuiTogether.entitlements; sourceTree = "<group>"; };
 		0DAAF44A21A3E59C00AC295A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -161,6 +162,7 @@
 		0D5194FA2193EF43007939D7 = {
 			isa = PBXGroup;
 			children = (
+				0DA7246F21BE90B7007D64CE /* Default-568h@2x.png */,
 				0DF11E3F21AB49C10004EDC4 /* README.md */,
 				0D5195052193EF43007939D7 /* DuiTogether */,
 				0D51951D2193EF45007939D7 /* DuiTogetherTests */,
@@ -185,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0DAAF44721A3E59900AC295A /* DuiTogether.entitlements */,
-				0D31909B21B6C06A004A4BB3 /* Info.plist */,
+				0DA7246D21BE902F007D64CE /* Info.plist */,
 				0DAAF43C21A240E900AC295A /* SupportingFiles */,
 				0D9EBF7B21AF8EE60017A99F /* DetailModel */,
 				0DAAF43B21A240C600AC295A /* ViewController */,
@@ -258,7 +260,6 @@
 		0DAAF43C21A240E900AC295A /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				0D3190AA21B6C61B004A4BB3 /* InfoPlist.strings */,
 				0D5195062193EF43007939D7 /* AppDelegate.swift */,
 				0D8AF9D3219A7245006BD567 /* GoogleService-Info.plist */,
 				0D51950D2193EF44007939D7 /* DuiTogether.xcdatamodeld */,
@@ -429,12 +430,12 @@
 				0D5195142193EF45007939D7 /* LaunchScreen.storyboard in Resources */,
 				0D31908F21B6B8B2004A4BB3 /* Localizable.strings in Resources */,
 				0DF11E3821AAB4DE0004EDC4 /* GroupDetail.storyboard in Resources */,
+				0DA7247021BE90B7007D64CE /* Default-568h@2x.png in Resources */,
 				0DF6829D21B9012000C9F726 /* CreateCheckoff.storyboard in Resources */,
 				0D8AF9D4219A7246006BD567 /* GoogleService-Info.plist in Resources */,
 				0DF11E3221AAB2850004EDC4 /* ProfileStoryboard.storyboard in Resources */,
 				0D5195112193EF45007939D7 /* Assets.xcassets in Resources */,
 				0DF682A121B9CAD200C9F726 /* CreateGroup.storyboard in Resources */,
-				0D3190A821B6C61B004A4BB3 /* InfoPlist.strings in Resources */,
 				0D51950C2193EF44007939D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D31909D21B6C06A004A4BB3 /* Info.plist in Resources */,
+				0DA7246A21BE902F007D64CE /* Info.plist in Resources */,
 				0D8AF9D5219A7246006BD567 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D31909E21B6C06A004A4BB3 /* Info.plist in Resources */,
+				0DA7246B21BE902F007D64CE /* Info.plist in Resources */,
 				0D8AF9D6219A7246006BD567 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,14 +704,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		0D3190AA21B6C61B004A4BB3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D3190A921B6C61B004A4BB3 /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		0D51950A2193EF44007939D7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -727,6 +720,15 @@
 				0D8AF9D2219A702F006BD567 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0DA7246D21BE902F007D64CE /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0DA7246C21BE902F007D64CE /* zh-Hans */,
+				0DA7246E21BE904F007D64CE /* Base */,
+			);
+			name = Info.plist;
 			sourceTree = "<group>";
 		};
 		0DF11E3421AAB2850004EDC4 /* ProfileStoryboard.storyboard */ = {
@@ -897,7 +899,7 @@
 				CODE_SIGN_ENTITLEMENTS = DuiTogether/DuiTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HW3538NJ2G;
-				INFOPLIST_FILE = DuiTogether/Info.plist;
+				INFOPLIST_FILE = DuiTogether/Base.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -918,7 +920,7 @@
 				CODE_SIGN_ENTITLEMENTS = DuiTogether/DuiTogether.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HW3538NJ2G;
-				INFOPLIST_FILE = DuiTogether/Info.plist;
+				INFOPLIST_FILE = DuiTogether/Base.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

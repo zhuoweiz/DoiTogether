@@ -130,8 +130,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Notification settings Failed to register: \(error)")
     }
-
-
-
 }
 
