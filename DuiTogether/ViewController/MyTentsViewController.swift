@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 import SkeletonView
+import UserNotifications
 
 class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIApplicationDelegate, SkeletonCollectionViewDataSource {
     func numSections(in collectionSkeletonView: UICollectionView) -> Int {
@@ -69,7 +70,8 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         //  collectionViewOutlet.showAnimatedSkeleton() // skeletonview
-
+        
+        registerForPushNotifications() // edit: changed push notification options
         
         // Layout setup
         let layout = collectionViewOutlet.collectionViewLayout as! UICollectionViewFlowLayout;
@@ -278,6 +280,58 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true;
     }
+    
+    //edit: notification
+    @objc func registerLocal() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh")
+            }
+        }
+    }
+    
+    
+    
+    // Notification groups
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current() // 1
+            .requestAuthorization(options: [.badge]) {
+                [weak self] granted, error in
+                
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self?.getNotificationSettings()
+        }
+    }
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+        ) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Notification settings Device Token: \(token)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Notification settings Failed to register: \(error)")
+    }
+
 }
 
 // SkeletonView NOT WORKING
@@ -286,6 +340,4 @@ public protocol SkeletonCollectionViewDataSource: UICollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier
 }
-
-
 
