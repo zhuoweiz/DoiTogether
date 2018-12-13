@@ -74,7 +74,6 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = true
-        checkOffTable.reloadData()
         checkOffTable.delaysContentTouches = false
         
         // UI pre setting
@@ -105,6 +104,10 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         
         // Should have stay unchanged
 //        checkOffTable.isScrollEnabled = false;
+        
+        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
+            self.checkOffTable.reloadData()
+        }
     }
     
     // helper function
@@ -122,9 +125,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         // update checkoff table
     }
     override func viewDidAppear(_ animated: Bool) {
-        sharedModel.updateCheckoff(withGid: thisGid) { (data: String) in
-            self.checkOffTable.reloadData()
-        }
+        
     }
     
     
@@ -252,6 +253,9 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
         
         cell.selectedBackgroundView?.tintColor = UIColor(white: 1, alpha: 0.1)
         cell.textLabel?.textColor = .black
+        
+        cell.selectionStyle = .none
+        
         return cell;
     }
     
@@ -315,7 +319,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
             
         } else {
             bigScrollView.isScrollEnabled = true;
-            checkOffTable.isScrollEnabled = true;
+            checkOffTable.isScrollEnabled = false;
             print("just scrolling...")
         }
     }

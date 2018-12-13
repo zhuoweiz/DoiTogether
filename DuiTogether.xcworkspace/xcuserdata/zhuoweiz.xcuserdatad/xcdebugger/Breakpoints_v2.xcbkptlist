@@ -97,53 +97,5 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DuiTogether/Model/DataModel.swift"
-            timestampString = "566140187.80681"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "GroupsModel"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_0357CF9A42C9F1FEC1529C6DFED70B6F_func0"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/Model/DataModel.swift"
-                  timestampString = "565680365.716592"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DuiTogether.GroupsModel.shared.unsafeMutableAddressor : DuiTogether.GroupsModel"
-                  moduleName = "DuiTogether"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhuoweiz/zzw/code/ITP342/DuiTogether/DuiTogether/Model/DataModel.swift"
-                  timestampString = "565680365.71848"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
