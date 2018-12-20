@@ -2,4 +2,4 @@
 
 cool app
 
-[Privacy Policy](privacy_policy.html)
+[Privacy Policy](https://zhuoweiz.github.io/DuiTogether/privacy_policy.html)
