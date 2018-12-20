@@ -10,8 +10,11 @@ import UIKit
 import FirebaseAuth
 import FirebaseUI
 import Firebase
+import UserNotifications
+//registerLocal()
+//scheduleLocal()
 
-class LoginViewController: UIViewController, FUIAuthDelegate {
+class LoginViewController: UIViewController, FUIAuthDelegate, UIPickerViewDelegate {
 
     // outlets
     @IBOutlet weak var avatarShow: UIImageView!
@@ -22,8 +25,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     @IBOutlet weak var SignInButtonOutlet: UIButton!
     @IBOutlet weak var SignOutButtonOutlet: UIButton!
     
-    // Do any additional setup after loading the view.
-    // initialize FirebaseUI
+    var timePicker = UIPickerView()
+    var pickedTime : Int = 22
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +105,10 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         
         let authViewController = authUI!.authViewController()
         present(authViewController, animated: true, completion: nil);
+    }
+    @IBAction func editNotification(_ sender: UIButton) {
+        registerLocal()
+        scheduleLocal()
     }
     
     // Error and data handler Login
@@ -213,6 +220,40 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    // edit: notification support
+    @objc func registerLocal() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh")
+            }
+        }
+    }
+    @objc func scheduleLocal() {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Hi friend ~"
+        content.body = "Time to check off today's tents!"
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "fizzbuzz"]
+        content.sound = UNNotificationSound.default
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 10
+        dateComponents.minute = 30
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        center.removeAllPendingNotificationRequests()
+        center.add(request)
+    }
 
 }
 
@@ -246,6 +287,8 @@ extension UIImageView {
 //                }
 //        })
 //    }
+    
+
     
    
 }

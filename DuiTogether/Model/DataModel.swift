@@ -92,13 +92,16 @@ class GroupsModel {
         let db = Firestore.firestore()
         let groupsRef = db.collection("groups")
         let gRef = groupsRef.document(gid)
+        let thisGroup = getGroupById(gid: gid)
 //        whereField("users", arrayContains: UserDataModel.shared.getID())
-        gRef.collection("checkoffs").getDocuments() { (querySnapshot, err) in
+        let checkoffsRef = gRef.collection("checkoffs").order(by: "creationdate", descending: true).limit(to: GroupsModel.shared.getGroupById(gid: gid).getSize()*2)
+        
+        checkoffsRef.getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting checkoffs: \(err)")
             } else {
-                self.getGroupById(gid: gid).mCheckoffList = [:]
-                self.getGroupById(gid: gid).mCidList = []
+                thisGroup.mCheckoffList = [:]
+                thisGroup.mCidList = []
                 for document in querySnapshot!.documents {
                     // let data: Dictionary = document.data() as Dictionary
                     
@@ -112,7 +115,8 @@ class GroupsModel {
                                 print("Firebase: fetch/updating data of checkoff: \(thisCid)")
                                 
                                 let data = document2.data()
-                                
+                            
+                                // print("Creation date rank \(data!["creationdate"] as! Date)")
                                 let newCheckoff = localCheckoff(
                                     created: data!["creationdate"] as! Date,
                                     dayid: data!["dayid"] as! String,
@@ -129,6 +133,10 @@ class GroupsModel {
                             // }
                         } else {
                             print("Document does not exist")
+                        }
+                        // sort checkoff list based on descending time
+                        self.getGroupById(gid: gid).mCidList.sort {data1, data2 in
+                            thisGroup.mCheckoffList[data1]!.getCreationDate() > thisGroup.mCheckoffList[data2]!.getCreationDate()
                         }
                         // completion
                         completion("Completionhander: fetch checkoffs")
