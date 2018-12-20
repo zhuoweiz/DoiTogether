@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B8951E963B932C9CDFC20DD /* Pods_DuiTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC9D8D49862BA002605A2B /* Pods_DuiTogether.framework */; };
+		0D0432FF21CBCC200080B332 /* AboutStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0432FE21CBCC200080B332 /* AboutStoryboard.storyboard */; };
 		0D0D963921ABCFD5000BCCEF /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D963821ABCFD5000BCCEF /* UserDataModel.swift */; };
 		0D31908521B673A4004A4BB3 /* TentDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31908421B673A4004A4BB3 /* TentDataCollectionViewCell.swift */; };
 		0D31908F21B6B8B2004A4BB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D31909121B6B8B2004A4BB3 /* Localizable.strings */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		0B0A6B1D7FD5517C1E50CAC6 /* Pods-DuiTogetherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DuiTogetherUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DuiTogetherUITests/Pods-DuiTogetherUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0D0432FE21CBCC200080B332 /* AboutStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutStoryboard.storyboard; sourceTree = "<group>"; };
 		0D0D963821ABCFD5000BCCEF /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		0D31908321B647D4004A4BB3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0D31908421B673A4004A4BB3 /* TentDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TentDataCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				0DF6829F21B9012000C9F726 /* CreateCheckoff.storyboard */,
 				0DF11E3A21AAB4DE0004EDC4 /* GroupDetail.storyboard */,
 				0D5195122193EF45007939D7 /* LaunchScreen.storyboard */,
+				0D0432FE21CBCC200080B332 /* AboutStoryboard.storyboard */,
 			);
 			name = View;
 			path = Storyboards;
@@ -437,6 +440,7 @@
 				0D5195112193EF45007939D7 /* Assets.xcassets in Resources */,
 				0DF682A121B9CAD200C9F726 /* CreateGroup.storyboard in Resources */,
 				0D51950C2193EF44007939D7 /* Main.storyboard in Resources */,
+				0D0432FF21CBCC200080B332 /* AboutStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

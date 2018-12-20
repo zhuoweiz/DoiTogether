@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zX4-bC-GHN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="o3c-hq-Y05">
+            <objects>
+                <viewController storyboardIdentifier="AboutSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zX4-bC-GHN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FFi-4w-tFU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuiTogether" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prI-yj-aTv">
+                                <rect key="frame" x="114" y="84" width="147" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-Fk-PvM">
+                                <rect key="frame" x="148.5" y="340" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-u8-23A">
+                                <rect key="frame" x="159" y="278" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-cp-aHQ">
+                                <rect key="frame" x="165" y="303" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-5F-SkZ">
+                                <rect key="frame" x="157" y="402" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duitogether@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-ti-PxF">
+                                <rect key="frame" x="96" y="427" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storm_sp1r1t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-Ej-0ec">
+                                <rect key="frame" x="138" y="365" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEN" translatesAutoresizingMaskIntoConstraints="NO" id="uav-k3-XzT">
+                                <rect key="frame" x="123.5" y="134" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="sf4-T1-6l4"/>
+                                    <constraint firstAttribute="height" constant="128" id="yWg-k5-ggE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsd-VX-e6X">
+                                <rect key="frame" x="122" y="464" width="131" height="30"/>
+                                <state key="normal" title="User Privacy Policy"/>
+                                <connections>
+                                    <segue destination="Dii-K0-apu" kind="show" id="Nli-qD-SC0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xsd-VX-e6X" firstAttribute="top" secondItem="9eW-ti-PxF" secondAttribute="bottom" constant="16" id="50W-Mc-XV6"/>
+                            <constraint firstItem="uav-k3-XzT" firstAttribute="top" secondItem="prI-yj-aTv" secondAttribute="bottom" constant="16" id="6zV-gp-DdY"/>
+                            <constraint firstItem="D1z-Fk-PvM" firstAttribute="top" secondItem="1Z8-cp-aHQ" secondAttribute="bottom" constant="16" id="A2c-re-8Sa"/>
+                            <constraint firstItem="9eW-ti-PxF" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="BcM-1i-iA3"/>
+                            <constraint firstItem="9eW-ti-PxF" firstAttribute="top" secondItem="uJR-5F-SkZ" secondAttribute="bottom" constant="4" id="G4K-9g-0V2"/>
+                            <constraint firstItem="uJR-5F-SkZ" firstAttribute="top" secondItem="fO3-Ej-0ec" secondAttribute="bottom" constant="16" id="OPB-BJ-Z1X"/>
+                            <constraint firstItem="fO3-Ej-0ec" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="X36-cO-b9s"/>
+                            <constraint firstItem="1Z8-cp-aHQ" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="ZOP-LO-Nqj"/>
+                            <constraint firstItem="prI-yj-aTv" firstAttribute="top" secondItem="zsF-nD-ciZ" secondAttribute="top" constant="20" id="bQa-2l-LQO"/>
+                            <constraint firstItem="prI-yj-aTv" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="i1z-cE-Gpj"/>
+                            <constraint firstItem="uav-k3-XzT" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="jHf-po-Zeb"/>
+                            <constraint firstItem="ybe-u8-23A" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="kWi-Bo-lyd"/>
+                            <constraint firstItem="1Z8-cp-aHQ" firstAttribute="top" secondItem="ybe-u8-23A" secondAttribute="bottom" constant="4" id="ksu-23-IBn"/>
+                            <constraint firstItem="ybe-u8-23A" firstAttribute="top" secondItem="uav-k3-XzT" secondAttribute="bottom" constant="16" id="nOR-o6-fQ8"/>
+                            <constraint firstItem="uJR-5F-SkZ" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="prO-dW-SqB"/>
+                            <constraint firstItem="fO3-Ej-0ec" firstAttribute="top" secondItem="D1z-Fk-PvM" secondAttribute="bottom" constant="4" id="qzL-8H-Ihw"/>
+                            <constraint firstItem="xsd-VX-e6X" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="t3Z-KC-2am"/>
+                            <constraint firstItem="D1z-Fk-PvM" firstAttribute="centerX" secondItem="FFi-4w-tFU" secondAttribute="centerX" id="zeq-vE-5UC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zsF-nD-ciZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="upp-Bh-cLk"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ng-FH-V9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343.19999999999999" y="164.16791604197903"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gru-rz-d8F">
+            <objects>
+                <viewController id="Dii-K0-apu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CEb-Up-ZrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="50o-dX-WSs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Privacy Policy
+Zhuowei Zhang built the DuiTogether app as a Free app. This SERVICE is provided by Zhuowei Zhang at no cost and is intended for use as is.
+
+This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+
+If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
+
+The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at DuiTogether unless otherwise defined in this Privacy Policy.
+
+Information Collection and Use
+
+For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to Email address, Avatar image. The information that I request will be retained on your device and is not collected by me in any way.
+
+The app does use third party services that may collect information used to identify you.
+
+Link to privacy policy of third party service providers used by the app
+
+AdMob
+Firebase Analytics
+Log Data
+
+I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.
+
+Cookies
+
+Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+
+This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
+
+Service Providers
+
+I may employ third-party companies and individuals due to the following reasons:
+
+To facilitate our Service;
+To provide the Service on our behalf;
+To perform Service-related services; or
+To assist us in analyzing how our Service is used.
+I want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+
+Security
+
+I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.
+
+Links to Other Sites
+
+This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+
+Children’s Privacy
+
+These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do necessary actions.
+
+Changes to This Privacy Policy
+
+I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.
+
+Contact Us
+
+If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me.
+
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="50o-dX-WSs" firstAttribute="bottom" secondItem="hq4-KI-fRV" secondAttribute="bottom" id="5o5-IV-mC8"/>
+                            <constraint firstItem="50o-dX-WSs" firstAttribute="top" secondItem="hq4-KI-fRV" secondAttribute="top" id="970-Hx-nGe"/>
+                            <constraint firstItem="50o-dX-WSs" firstAttribute="trailing" secondItem="hq4-KI-fRV" secondAttribute="trailing" id="HBj-HS-FFF"/>
+                            <constraint firstItem="50o-dX-WSs" firstAttribute="leading" secondItem="hq4-KI-fRV" secondAttribute="leading" id="grg-CZ-hs5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hq4-KI-fRV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFX-eq-Ojz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.80000000000001" y="164.16791604197903"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logoEN" width="200" height="200"/>
+    </resources>
+</document>
