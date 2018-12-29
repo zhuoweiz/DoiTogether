@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zX4-bC-GHN">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,60 +14,60 @@
             <objects>
                 <viewController storyboardIdentifier="AboutSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zX4-bC-GHN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FFi-4w-tFU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuiTogether" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prI-yj-aTv">
-                                <rect key="frame" x="114" y="84" width="147" height="34"/>
+                                <rect key="frame" x="133.66666666666666" y="84" width="146.99999999999997" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-Fk-PvM">
-                                <rect key="frame" x="148.5" y="340" width="78" height="21"/>
+                                <rect key="frame" x="168" y="340" width="78" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-u8-23A">
-                                <rect key="frame" x="159" y="278" width="57" height="21"/>
+                                <rect key="frame" x="178.66666666666666" y="278" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do 1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-cp-aHQ">
-                                <rect key="frame" x="165" y="303" width="45" height="21"/>
+                                <rect key="frame" x="184.66666666666666" y="303" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-5F-SkZ">
-                                <rect key="frame" x="157" y="402" width="61" height="21"/>
+                                <rect key="frame" x="176.66666666666666" y="402" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duitogether@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-ti-PxF">
-                                <rect key="frame" x="96" y="427" width="183" height="21"/>
+                                <rect key="frame" x="115.66666666666669" y="427" width="183" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storm_sp1r1t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO3-Ej-0ec">
-                                <rect key="frame" x="138" y="365" width="99" height="21"/>
+                                <rect key="frame" x="157.66666666666666" y="365" width="98.999999999999972" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEN" translatesAutoresizingMaskIntoConstraints="NO" id="uav-k3-XzT">
-                                <rect key="frame" x="123.5" y="134" width="128" height="128"/>
+                                <rect key="frame" x="143" y="134" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="sf4-T1-6l4"/>
                                     <constraint firstAttribute="height" constant="128" id="yWg-k5-ggE"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsd-VX-e6X">
-                                <rect key="frame" x="122" y="464" width="131" height="30"/>
+                                <rect key="frame" x="141.66666666666666" y="464" width="130.99999999999997" height="30"/>
                                 <state key="normal" title="User Privacy Policy"/>
                                 <connections>
                                     <segue destination="Dii-K0-apu" kind="show" id="Nli-qD-SC0"/>
@@ -97,7 +97,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zsF-nD-ciZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="qwy-of-uWl"/>
+                    <navigationItem key="navigationItem" title="About" largeTitleDisplayMode="never" id="qwy-of-uWl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ng-FH-V9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,11 +109,11 @@
             <objects>
                 <viewController id="Dii-K0-apu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CEb-Up-ZrQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="50o-dX-WSs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <mutableString key="text">Zhuowei Zhang built the DuiTogether app as a Free app. This SERVICE is provided by Zhuowei Zhang at no cost and is intended for use as is.
 
