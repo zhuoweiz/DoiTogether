@@ -1,4 +1,4 @@
-#  DuiTogether
+#  DoiTogether
 
 ## Abstract
 People always have a hard time forming or fighting a habit, but it will be easier when you are not alone, when people who want to do the same thing can check on you everyday. DuiTogether empowers users to form a group, when fighting bad habits or pursuing new habits. Here users will receive the support and supervision from their peers after setting a specific goal, thus have a better chance finishing it.
@@ -17,4 +17,4 @@ People who wants to start new habits/fight bad habits. For example, people who w
 4. Feel free to contact me at: duitogether@gmail.com
 
 ## Others
-[Privacy Policy](https://zhuoweiz.github.io/DuiTogether/privacy_policy.html)
+[Privacy Policy](https://zhuoweiz.github.io/DoiTogether/privacy_policy.html)
