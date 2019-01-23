@@ -1,5 +1,8 @@
 #  DoiTogether
 
+## Download
+[View in the AppStore](https://itunes.apple.com/us/app/doitogether/id1445971386?ls=1&mt=8)
+
 ## Abstract
 People always have a hard time forming or fighting a habit, but it will be easier when you are not alone, when people who want to do the same thing can check on you everyday. DuiTogether empowers users to form a group, when fighting bad habits or pursuing new habits. Here users will receive the support and supervision from their peers after setting a specific goal, thus have a better chance finishing it.
 
