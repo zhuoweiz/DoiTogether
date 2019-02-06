@@ -38,6 +38,9 @@ target 'DuiTogether' do
   pod 'imgurupload-client'
   pod 'Alamofire', '~> 4.7'
   
+  #zhuowei: ui improvement
+  pod 'NVActivityIndicatorView'
+  
 # UI improvement
 pod 'SkeletonView' # loading view pre look
 pod 'NVActivityIndicatorView' # loading animation set

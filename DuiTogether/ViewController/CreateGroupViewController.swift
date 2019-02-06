@@ -88,97 +88,115 @@ class CreateGroupViewController: UIViewController, UITextFieldDelegate, FUIAuthD
         print("creation group completion handler")
         print("\(String(describing: self.completionHandler))")
         
-        if let task = taskInput.text, let amount = amountInput.text, let unit = unitInput.text, let length = lengthInput.text, let capacity = capacityInput.text, let rule = ruleInput.text, let name = nameInput.text, let completionHandler = self.completionHandler {
-//            print("testing order")
-            completionHandler(task, "\(amount) \(unit)/Day")
+        if(taskInput.text == "" || amountInput.text == "" || unitInput.text == "" ||
+            lengthInput.text == "" ||
+            capacityInput.text == "" ||
+            nameInput.text == "") {
+            // validation fail, push alert
+            let alertController = UIAlertController(title: NSLocalizedString("Alert", comment: ""),
+                                                    message: NSLocalizedString("You have to finish all required input to continue", comment: ""),
+                                                    preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Got it", comment: ""), style: .cancel, handler: nil)
+            // Using the handler parameter, send the code to be executed (handle the action)
             
-            // clear text fields
-            taskInput.text = nil
-            amountInput.text = nil
-            unitInput.text = nil
-            lengthInput.text = nil
-            capacityInput.text = nil
-            nameInput.text = nil
-            ruleInput.text = ""
-            
-            //color dataBase
-            let colorDB = [
-                (0, 31, 63, 109,192,255),
-                (0, 116, 217, 186,218,252),
-                (127,219,255, 27,72,100),
-                (57,204,204, 0, 0, 0),
-                (61,153,112, 30,54,41),
-                (1,255,112,0,102,43),
-                (255,133,27,102,47,0),
-                (255,65,54,128,5,0),
-                (255,220,0,102,88,0),
-                (133,20,75,234,122,177),
-                (221,221,221,0,0,0),
-                (17,17,17,221,221,221),
-                (255,153,102, 0,0,0), // orange black
-                (0, 250, 250,0,0,0), //light blue black
-                (237, 94, 94, 255,255,255), // red white
-                (170,170,170,0,0,0)
-            ]
-            let randomColor = Int(arc4random_uniform(15))
-            let colorCode = [colorDB[randomColor].0,
-                             colorDB[randomColor].1,
-                             colorDB[randomColor].2,
-                             colorDB[randomColor].3,
-                             colorDB[randomColor].4,
-                             colorDB[randomColor].5]
-            let creationDate = Date()
-            
-            // Database deal & sharedModel deal
-            let db = Firestore.firestore()
-            var ref: DocumentReference? = nil
-            ref = db.collection("groups").addDocument(data: [
-                "name": name,
-                "task": task,
-                "amount": Int(amount) ?? 0,
-                "unit": unit,
-                "length": Int(length) ?? 0,
-                "capacity": Int(capacity) ?? 0,
-                "size" : 1,
-                "rule": rule,
-                "users": [sharedUserModel.user?.GetUid()], // add uid to the group
-                "creationDate": creationDate,
-                "progress":0,
-                "colorCode": colorCode,
-                "visibility": ""
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            if let task = taskInput.text?.lowercased(), let amount = amountInput.text, let unit = unitInput.text, let length = lengthInput.text, let capacity = capacityInput.text, let rule = ruleInput.text, let name = nameInput.text, let completionHandler = self.completionHandler {
                 
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
+                completionHandler(task, "\(amount) \(unit)/Day")
+                
+                // clear text fields
+                taskInput.text = nil
+                amountInput.text = nil
+                unitInput.text = nil
+                lengthInput.text = nil
+                capacityInput.text = nil
+                nameInput.text = nil
+                ruleInput.text = ""
+                
+                //color dataBase
+                let colorDB = [
+                    (0, 31, 63, 109,192,255),
+                    (0, 116, 217, 186,218,252),
+                    (127,219,255, 27,72,100),
+                    (57,204,204, 0, 0, 0),
+                    (61,153,112, 30,54,41),
+                    (1,255,112,0,102,43),
+                    (255,133,27,102,47,0),
+                    (255,65,54,128,5,0),
+                    (255,220,0,102,88,0),
+                    (133,20,75,234,122,177),
+                    (221,221,221,0,0,0),
+                    (17,17,17,221,221,221),
+                    (255,153,102, 0,0,0), // orange black
+                    (0, 250, 250,0,0,0), //light blue black
+                    (237, 94, 94, 255,255,255), // red white
+                    (170,170,170,0,0,0)
+                ]
+                let randomColor = Int(arc4random_uniform(15))
+                let colorCode = [colorDB[randomColor].0,
+                                 colorDB[randomColor].1,
+                                 colorDB[randomColor].2,
+                                 colorDB[randomColor].3,
+                                 colorDB[randomColor].4,
+                                 colorDB[randomColor].5]
+                let creationDate = Date()
+                
+                // Database deal & sharedModel deal
+                let db = Firestore.firestore()
+                var ref: DocumentReference? = nil
+                ref = db.collection("groups").addDocument(data: [
+                    "name": name,
+                    "task": task,
+                    "amount": Int(amount) ?? 0,
+                    "unit": unit,
+                    "length": Int(length) ?? 0,
+                    "capacity": Int(capacity) ?? 0,
+                    "size" : 1,
+                    "rule": rule,
+                    "users": [sharedUserModel.user?.GetUid()], // add uid to the group
+                    "creationDate": creationDate,
+                    "progress":0,
+                    "colorCode": colorCode,
+                    "tags": [],
+                    "visibility": ""
                     
-                    // update things after new group creation... add id to owner, change SM with new group & new id in group
-                    self.sharedModel.createGroup(gid: ref!.documentID, mTask: task, mAmount: Int(amount) ?? 0, mUnit: unit, mCapacity: Int(capacity)!, mLength: Int(length)!, mRule: rule, mSize: 1, mColorCode: colorCode, mProgress: 0, mName: name, creationDate: creationDate, uid: (Auth.auth().currentUser?.uid)!, mVisibility: "")
-                    
-                    // after creating a new group, add the group id to user
-                    if let user = Auth.auth().currentUser {
-                        // User is signed in.
-                        let washingtonRef = db.collection("users").document("\(user.uid)")
-                        
-                        // Atomically add a new group to the "groups" array field.
-                        washingtonRef.updateData([
-                            "groups": FieldValue.arrayUnion(["\(ref!.documentID)"])
-                            ])
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
                     } else {
-                        // No user is signed in.
-                        print("ERROE! not logged in but trying to add group")
+                        print("Document added with ID: \(ref!.documentID)")
+                        
+                        // update things after new group creation... add id to owner, change SM with new group & new id in group
+                        
+                        self.sharedModel.createGroup(gid: ref!.documentID, mTask: task, mAmount: Int(amount) ?? 0, mUnit: unit, mCapacity: Int(capacity)!, mLength: Int(length)!, mRule: rule, mSize: 1, mColorCode: colorCode, mProgress: 0, mName: name, creationDate: creationDate, uid: (Auth.auth().currentUser?.uid)!, mVisibility: "")
+                        
+                        // after creating a new group, add the group id to user
+                        if let user = Auth.auth().currentUser {
+                            // User is signed in.
+                            let washingtonRef = db.collection("users").document("\(user.uid)")
+                            
+                            // Atomically add a new group to the "groups" array field.
+                            washingtonRef.updateData([
+                                "groups": FieldValue.arrayUnion(["\(ref!.documentID)"])
+                                ])
+                        } else {
+                            // No user is signed in.
+                            print("ERROE! not logged in but trying to add group")
+                        }
+                        // add gid to user and others, done in create function
                     }
-                    // add gid to user and others, done in create function
                 }
+                
+                // test stack pop
+                print("get the plaza page back")
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.popViewController(animated: true)
             }
-            
-            // test stack pop
-            print("get the plaza page back")
-            self.tabBarController?.tabBar.isHidden = false
-            self.navigationController?.popViewController(animated: true)
         }
     }
+    
     @IBAction func redirectLoginAction(_ sender: UIButton) {
         // not not logged in, go to page blabla
         let authUI = FUIAuth.defaultAuthUI()

@@ -10,9 +10,13 @@ import UIKit
 import Firebase
 import FirebaseUI
 
+typealias Back2SearchCompletionHandler = (() -> Void)
 //typealias GCompletionHandler = ((_ group: LocalGroup?) -> Void)
 typealias GCompletionHandler = ((_ group: LocalGroup?) -> Void)
+
 class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
+    
+    var back2SearchCompletionHandler: Back2SearchCompletionHandler?
     
     var sharedModel = GroupsModel.shared
     var sharedUserModel = UserDataModel.shared
@@ -41,7 +45,7 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     var checkoffText = ""
     var ruleText = ""
     var complexText = ""
-    var group: LocalGroup? = nil
+    // var group: LocalGroup? = nil
     
     // logic passed in var
     var hasTent:Bool = false
@@ -127,6 +131,9 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     override func viewDidAppear(_ animated: Bool) {
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     
     @IBAction func groupmemberAction(_ sender: UIButton) {
@@ -182,12 +189,12 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
 
                 // switch page (NOT WORKING)
                 // print("before handler...")
-                if let completionHandler = self.completionHandler {
-                    print("NOT WORKING completiong handler...")
-                    completionHandler(self.group)
-                    print("NOT WORKING completiong handler...")
-                    self.navigationController?.popViewController(animated: false)
-                }
+//                if let completionHandler = self.completionHandler {
+//                    print("NOT WORKING completiong handler...")
+//                    completionHandler(self.group)
+//                    print("NOT WORKING completiong handler...")
+//                    self.navigationController?.popViewController(animated: false)
+//                }
             } )
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
@@ -233,9 +240,6 @@ class GroupViewController: UIViewController, FUIAuthDelegate, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chcekOffCell")!
-        
-        
-        
         
 //        let card = sharedModel.flashcard(atIndex: indexPath.row)
         

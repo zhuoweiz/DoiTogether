@@ -81,6 +81,9 @@ class PlazaViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    // SEARCHBAR SETUP
+    
+    
     //  setting the size of each item, there is another approach
     func collectionView(_ collectionView: UICollectionView,
                                  layout collectionViewLayout: UICollectionViewLayout,

@@ -92,7 +92,7 @@ class UserDataModel {
                                     newGroup.addUid(uid: thisuid)
                                 }
                                 
-                                GroupsModel.shared.addGroup(gid: thisGid, group: newGroup)
+                                GroupsModel.shared.addGroupToAll(gid: thisGid, group: newGroup)
                             } else {
                                 print("ERROR: Document does not exist for adding gid to login init user")
                             }

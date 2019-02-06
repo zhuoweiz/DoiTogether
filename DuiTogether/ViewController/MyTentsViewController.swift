@@ -192,7 +192,7 @@ class MyTentsViewController: UIViewController, FUIAuthDelegate, UICollectionView
             vc.ruleText = "\(tempGroup.getRuleText())"
             vc.hasTent = true
             vc.thisGid = tempGroup.getgid()
-            vc.group = tempGroup
+            // vc.group = tempGroup
         } else {
             print("Error: out of range in tent vc")
         }

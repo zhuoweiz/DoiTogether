@@ -154,8 +154,6 @@ class CreateCheckoffViewController: UIViewController, UINavigationControllerDele
     @IBAction func doneCheckOff(_ sender: UIButton) {
         if(hasPicked == false) {
             // validation fail, push alert
-            
-            // Code sniplet in a method
             let alertController = UIAlertController(title: NSLocalizedString("Alert", comment: ""),
                                                     message: NSLocalizedString("You have to add an image to check off", comment: ""),
                                                     preferredStyle: .alert)

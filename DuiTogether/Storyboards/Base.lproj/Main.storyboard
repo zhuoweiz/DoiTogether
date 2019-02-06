@@ -31,6 +31,16 @@
             </objects>
             <point key="canvasLocation" x="-276" y="-73"/>
         </scene>
+        <!--searchPanelSBI-->
+        <scene sceneID="IX6-Rp-loh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="searchPanelSBI" storyboardName="SearchPage" referencedIdentifier="searchPanelSBI" id="An0-2e-USp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="GAe-tt-dS5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x9o-UI-UGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1170" y="426"/>
+        </scene>
         <!--ProfileStoryboard-->
         <scene sceneID="SS6-db-3mD">
             <objects>
@@ -39,29 +49,16 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryK-H0-YPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="425"/>
+            <point key="canvasLocation" x="-890" y="427"/>
         </scene>
         <!--My Tents-->
         <scene sceneID="CAO-zE-tLD">
             <objects>
-                <viewController id="twt-B2-2Fw" customClass="MyTentsViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myTentsSBI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="twt-B2-2Fw" customClass="MyTentsViewController" customModule="DuiTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v1k-ax-igo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-js-Kc6">
-                                <rect key="frame" x="97.5" y="132" width="180" height="30"/>
-                                <color key="backgroundColor" red="0.72143659959999995" green="0.71183677909999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="0cj-BE-5FC"/>
-                                </constraints>
-                                <state key="normal" title="Sign In to see my tents">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signinAction:" destination="twt-B2-2Fw" eventType="touchUpInside" id="em3-vw-8XO"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-1d-hYI">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,6 +158,19 @@
                                     <outlet property="delegate" destination="twt-B2-2Fw" id="D1q-dk-KRK"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-js-Kc6">
+                                <rect key="frame" x="97.5" y="132" width="180" height="30"/>
+                                <color key="backgroundColor" red="0.72143659959999995" green="0.71183677909999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="0cj-BE-5FC"/>
+                                </constraints>
+                                <state key="normal" title="Sign In to see my tents">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signinAction:" destination="twt-B2-2Fw" eventType="touchUpInside" id="em3-vw-8XO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -361,8 +371,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="n3g-NW-1n4" firstAttribute="trailing" secondItem="ZKg-24-zt7" secondAttribute="trailing" id="LtM-hB-7tY"/>
+                            <constraint firstItem="n3g-NW-1n4" firstAttribute="top" secondItem="ZKg-24-zt7" secondAttribute="top" id="Lyt-Zd-RFx"/>
                             <constraint firstItem="n3g-NW-1n4" firstAttribute="leading" secondItem="ZKg-24-zt7" secondAttribute="leading" id="YkQ-6G-Eot"/>
-                            <constraint firstItem="n3g-NW-1n4" firstAttribute="top" secondItem="ZKg-24-zt7" secondAttribute="top" id="muY-lq-pjN"/>
                             <constraint firstItem="ZKg-24-zt7" firstAttribute="bottom" secondItem="n3g-NW-1n4" secondAttribute="bottom" id="own-iF-gmk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZKg-24-zt7"/>
@@ -372,12 +382,29 @@
                     <connections>
                         <outlet property="navItemShow" destination="Ras-gK-yRw" id="sfG-Wq-yx3"/>
                         <outlet property="plazaCollection" destination="n3g-NW-1n4" id="euG-FN-1vX"/>
+                        <outlet property="searchDisplayController" destination="meW-a7-qWE" id="38G-Sy-xqh"/>
                         <segue destination="1N3-lt-h1M" kind="show" identifier="ShowPlazaGroupSI" id="5A2-5M-Cu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNB-mR-Zb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="TEl-Zd-SGq">
+                    <connections>
+                        <outlet property="delegate" destination="sZs-qH-bwg" id="4gS-Ha-avY"/>
+                        <outlet property="searchContentsController" destination="sZs-qH-bwg" id="YzP-Rz-aPT"/>
+                        <outlet property="searchResultsDataSource" destination="sZs-qH-bwg" id="P8M-PE-EPe"/>
+                        <outlet property="searchResultsDelegate" destination="sZs-qH-bwg" id="Enu-iK-bt7"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="meW-a7-qWE">
+                    <connections>
+                        <outlet property="delegate" destination="sZs-qH-bwg" id="ht5-kH-98Y"/>
+                        <outlet property="searchContentsController" destination="sZs-qH-bwg" id="OkR-Kq-H7V"/>
+                        <outlet property="searchResultsDataSource" destination="sZs-qH-bwg" id="rqh-FU-lg2"/>
+                        <outlet property="searchResultsDelegate" destination="sZs-qH-bwg" id="zfz-gR-Av5"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="542" y="-808"/>
+            <point key="canvasLocation" x="541.60000000000002" y="-808.24587706146929"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ol3-ai-rtX">
@@ -391,7 +418,8 @@
                     <connections>
                         <segue destination="WLk-FR-5Nf" kind="relationship" relationship="viewControllers" id="B9I-Z2-KpW"/>
                         <segue destination="XOc-qj-hq4" kind="relationship" relationship="viewControllers" id="nbk-Rq-Ltg"/>
-                        <segue destination="aO7-UE-4WW" kind="relationship" relationship="viewControllers" id="wLo-3m-Puz"/>
+                        <segue destination="An0-2e-USp" kind="relationship" relationship="viewControllers" id="jak-Rr-Npl"/>
+                        <segue destination="aO7-UE-4WW" kind="relationship" relationship="viewControllers" id="qSs-O9-h5M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZM-y0-4Eb" userLabel="First Responder" sceneMemberID="firstResponder"/>

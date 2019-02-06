@@ -182,7 +182,7 @@ class GroupsModel {
             
             ])
     }
-    public func addGroup(gid: String, group: LocalGroup) {
+    public func addGroupToAll(gid: String, group: LocalGroup) {
         allGroups[gid] = group
     }
     
