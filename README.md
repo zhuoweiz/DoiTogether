@@ -1,5 +1,13 @@
 #  DoiTogether
 
+A collaborative self-improvement iOS app using Swift (Nov 2018 – Jan 2020)
+
+x Developed based on Storyboard
+
+x Worked with Firebase APIs and Alamofire library for features including authentication, object storage and push notifications
+
+x Distributed at Apple Appstore with a 4.3 out of 5 rating and dozens of weekly exposures to real users
+
 ## Download
 [View in the AppStore](https://itunes.apple.com/us/app/doitogether/id1445971386?ls=1&mt=8)
 
